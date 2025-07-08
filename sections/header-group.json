@@ -50,6 +50,28 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "image_picker_N34dF7": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/iconoir_simple-cart.png",
+            "alt_text": "Cart icon"
+          }
+        },
+        "button_BXbbCw": {
+          "type": "button",
+          "settings": {
+            "button_text_desktop": "Shop now →",
+            "button_text_mobile": "Click Me",
+            "button_color": "#ef4444",
+            "button_link": "/"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_N34dF7",
+        "button_BXbbCw"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",

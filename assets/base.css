@@ -7,6 +7,8 @@
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)),
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+  --homepage-red: #ef4444;
+  --black: #000000;
 }
 
 @font-face {
@@ -30,6 +32,13 @@
 @font-face {
   font-family: "Raleway-Bold";
   src: url("https://cdn.shopify.com/s/files/1/0899/1355/7281/files/Raleway.ttf?v=1727166657")
+    format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Comforter_Bold";
+  src: url("https://cdn.shopify.com/s/files/1/0899/1355/7281/files/Comforter.ttf?v=1727419233")
     format("truetype");
   font-weight: 700;
 }
