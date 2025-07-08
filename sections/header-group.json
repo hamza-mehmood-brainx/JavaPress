@@ -17,15 +17,17 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Hello",
-            "link": ""
+            "text": "We are here to help as your coffee concierge!!",
+            "link": "shopify://collections/coffee",
+            "highlight": "TAKE THE SURVEY"
           }
         },
         "announcement_gKm9WM": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "text": "We are here to help as your coffee concierge!",
+            "link": "shopify://collections/coffee",
+            "highlight": "TAKE THE SURVEY"
           }
         }
       },
@@ -37,6 +39,9 @@
         "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "scheme-1",
+        "include-custom-style": false,
+        "link_text_color": "#ef4444",
+        "announcement-bg-color": "#d3d3d3",
         "show_line_separator": true,
         "show_social": true,
         "enable_country_selector": false,
