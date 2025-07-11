@@ -79,6 +79,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "all",
         "products_to_show": 8,
@@ -103,6 +104,78 @@
         "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "best_sellers_custom_bXtPLL": {
+      "type": "best-sellers-custom",
+      "blocks": {
+        "collection_yxJPqc": {
+          "type": "collection",
+          "settings": {
+            "collection": "best-sellers"
+          }
+        },
+        "collection_FLcGmW": {
+          "type": "collection",
+          "settings": {
+            "collection": "daily-essentials"
+          }
+        },
+        "collection_Jft7VH": {
+          "type": "collection",
+          "settings": {
+            "collection": "skin-care"
+          }
+        },
+        "collection_BtE477": {
+          "type": "collection",
+          "settings": {
+            "collection": "starter-kits"
+          }
+        }
+      },
+      "block_order": [
+        "collection_yxJPqc",
+        "collection_FLcGmW",
+        "collection_Jft7VH",
+        "collection_BtE477"
+      ],
+      "settings": {
+        "title": "Try Our Best Sellers",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "coffee",
+        "products_to_show": 16,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "tabs-color": "#2d2d2d",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "show-title-heading": true,
+        "include-custom-style": true,
+        "show-collection-tabs": true,
+        "show-collection-product-card": true,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 36,
+        "review-text": "( 1171 Reviews )",
+        "add-to-cart-button": true,
+        "add-to-cart-button-text-color": "#fdfdfd",
+        "add-to-cart-button-background-color": "#ef4444",
+        "show-sale-tag": false,
+        "active-tab-text-decoration": "#af272f",
+        "multiple-collections-background-color": "#f2f2f2"
       }
     },
     "featured_product_CHWhk3": {
@@ -179,6 +252,7 @@
   "order": [
     "image_banner_KX9HyU",
     "featured_collection",
+    "best_sellers_custom_bXtPLL",
     "featured_product_CHWhk3"
   ]
 }
