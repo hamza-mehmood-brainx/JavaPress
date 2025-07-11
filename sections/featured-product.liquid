@@ -1,3 +1,45 @@
+<style>
+  #shopify-section-{{ section.id }} .mid-text-color{
+    color: {{ section.settings.mid-text-color }};
+  }
+  #shopify-section-{{ section.id }} .post-text-color{
+    color: {{ section.settings.post-text-color }};
+  }
+  #shopify-section-{{ section.id }} .mid-background-color{
+    background-color: {{ section.settings.mid-background-color }};
+  }
+  #shopify-section-{{ section.id }} .post-background-color{
+    background-color: {{ section.settings.post-background-color }};
+  }
+  #shopify-section-{{ section.id }} .price-sale-text-color{
+    color: {{ section.settings.price-sale-text-color }};
+  }
+  #shopify-section-{{ section.id }} .price-regular-text-color{
+    color: {{ section.settings.price-regular-text-color }} !important;
+  }
+  #shopify-section-{{ section.id }} .featured-product-description{
+    color: {{ section.settings.featured-product-description }};
+  }
+  #shopify-section-{{ section.id }} .featured-product-submit-button-background-color{
+    background-color: {{ section.settings.featured-product-submit-button-background-color }};
+  }
+  #shopify-section-{{ section.id }} .featured-product-submit-button-text-color{
+    color: {{ section.settings.featured-product-submit-button-text-color }};
+  }
+  #shopify-section-{{ section.id }} .checkbox-label-color{
+    color: {{ section.settings.checkbox-label-color }};
+  }
+  #shopify-section-{{ section.id }} .quantity-buttons-main .quantity-button-minus, .quantity-buttons-main .quantity-button-plus
+  {
+      background-color: {{ section.settings.quanity-buttons-color }} !important;
+  }
+
+  #shopify-section-{{ section.id }} .product-title-head,  .product-title-head a ,  .product-title-head a:visited
+  {
+    color: {{ section.settings.product-title-color }};
+  }
+</style>
+
 {%- liquid
   assign product = section.settings.product
   if product == null
@@ -41,6 +83,10 @@
     }
   {%- endstyle -%}
 
+  {% if section.settings['show-custom-styling'] %}
+    {{ 'featured-product-custom.css' | asset_url | stylesheet_tag }}
+  {% endif %}
+
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
@@ -69,9 +115,14 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
   <section class="color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %}">
-    <div class="page-width section-{{ section.id }}-padding{% if section.settings.secondary_background %} isolate{% endif %}">
+    <div
+      class="
+        page-width section-{{ section.id }}-padding{% if section.settings.secondary_background %} isolate{% endif %}
+        {% if section.settings.enable-custom-page-width %} page-section-custom {% endif %}
+      "
+    >
       <div class="featured-product product product--{{ section.settings.media_size }} grid grid--1-col gradient color-{{ section.settings.color_scheme }} product--{{ section.settings.media_position }}{% if section.settings.secondary_background == false %} isolate{% endif %} {% if product.media.size > 0 or section.settings.product == blank %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-        <div class="grid__item product__media-wrapper">
+        <div class="grid__item product__media-wrapper featured-product-media-wrapper">
           {%- unless placeholder -%}
             {% render 'product-media-gallery', product: product, variant_images: variant_images, limit: 1 %}
           {%- else -%}
@@ -85,7 +136,7 @@
             </div>
           {%- endunless -%}
         </div>
-        <div class="product__info-wrapper grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="featured-product-info product__info-wrapper grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
             id="ProductInfo-{{ section.id }}"
             class="product__info-container"
@@ -99,22 +150,82 @@
                 {%- when '@app' -%}
                   {% render block %}
                 {%- when 'text' -%}
-                  <p
-                    class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                  {%- if block.settings['show-pre-text'] -%}
+                    <p
+                      class="
+                        featured-product-description  {% if section.settings.featured-product-description %} featured-product-description {% endif %}
+                        product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}
+                      "
+                      {{ block.shopify_attributes }}
+                    >
+                      {{- block.settings.text -}}
+                    </p>
+                  {% endif %}
+
+                  {%- if block.settings.mid_text != blank and block.settings.post_text != blank -%}
+                    <div class="product-text-logos">
+                      {%- if block.settings.mid_text -%}
+                        <p
+                          class="
+                            mid-text {% if section.settings.mid-text-color %} mid-text-color {% endif %}
+                            {% if section.settings.mid-background-color %} mid-background-color {% endif %}
+                          "
+                        >
+                          {{ block.settings.mid_text }}
+                        </p>
+                      {%- endif -%}
+
+                      {%- if block.settings.post_text -%}
+                        <p
+                          class="
+                            post-text {% if section.settings.post-text-color %} post-text-color {% endif %}
+                            {% if section.settings.post-background-color %} post-background-color {% endif %}
+                          "
+                        >
+                          {{ block.settings.post_text }}
+                        </p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'title' -%}
+                  <h2
+                    class="product-title-head product__title {{ block.settings.heading_size }}"
                     {{ block.shopify_attributes }}
                   >
-                    {{- block.settings.text -}}
-                  </p>
-                {%- when 'title' -%}
-                  <h2 class="product__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                     {%- unless placeholder -%}
-                      {{ product.title | escape }}
+                      <a href="{{ product.url }}" title="{{ product.title | escape }}">
+                        {{ product.title | escape }}
+                      </a>
                     {%- else -%}
-                      {{ 'onboarding.product_title' | t }}
+                      <a href="#" title="{{ 'onboarding.product_title' | t }}">
+                        {{ 'onboarding.product_title' | t }}
+                      </a>
                     {%- endunless -%}
                   </h2>
+
+                  {%- if block.settings.stars_image != blank and block.settings.rating_text_coffee_lovers != blank -%}
+                    <div class="rating-text-coffee">
+                      <img
+                        class="rating-star-image"
+                        src="{{ block.settings.stars_image | image_url }}"
+                        alt="img_text"
+                        width=""
+                        height=""
+                      >
+                      <p class="rating-star-text {% if section.settings.star_text-color %} custom-star-text-color {% endif %}">
+                        {{ block.settings.rating_text_coffee_lovers }}
+                      </p>
+                    </div>
+                  {% endif %}
+
                 {%- when 'price' -%}
-                  <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                  <div
+                    id="price-{{ section.id }}"
+                    role="status"
+                    {{ block.shopify_attributes }}
+                    class="product-price-template"
+                  >
                     {%- render 'price',
                       product: product,
                       placeholder: placeholder,
@@ -160,10 +271,25 @@
                     <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
                     {{- product.selected_or_first_available_variant.sku -}}
                   </p>
+                {%- when 'share' -%}
+                  {% liquid
+                    assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
+                    render 'share-button', block: block, share_link: share_url
+                  %}
+                {%- when 'variant_picker' -%}
+                  {% render 'product-variant-picker',
+                    product: product,
+                    block: block,
+                    product_form_id: product_form_id
+                  %}
+
+                  <div
+                    class="{% if section.settings.quantity-button-custom-style %} quantity-button-custom-style {% endif %}"
+                  >
                 {%- when 'quantity_selector' -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"
-                    class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                    class="quantity-main product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
@@ -172,20 +298,23 @@
                       | item_count_for_variant: product.selected_or_first_available_variant.id
                     -%}
                     {% # theme-check-enable %}
-                    <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-                      {{ 'products.product.quantity.label' | t }}
+                    <label class="quantity__label form__label quantity-label" for="Quantity-{{ section.id }}">
+                      {{ 'products.product.quantity.label' | t }}:
+
                       <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
                         {%- render 'loading-spinner' -%}
-                        <span
-                          >(
-                          {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                          )</span
-                        >
+                        {% if block.settings['show-quantity-cart-label'] %}
+                          <span
+                            >(
+                            {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                            )</span
+                          >
+                        {% endif %}
                       </span>
                     </label>
                     <div class="price-per-item__container">
-                      <quantity-input class="quantity">
-                        <button class="quantity__button" name="minus" type="button">
+                      <quantity-input class="quantity quantity-buttons-main">
+                        <button class="quantity__button quantity-button-minus" name="minus" type="button">
                           <span class="visually-hidden">
                             {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                           </span>
@@ -209,7 +338,7 @@
                           value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                           form="{{ product_form_id }}"
                         >
-                        <button class="quantity__button" name="plus" type="button">
+                        <button class="quantity__button quantity-button-plus" name="plus" type="button">
                           <span class="visually-hidden">
                             {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                           </span>
@@ -251,7 +380,7 @@
                                   | money_with_currency
                                 -%}
                                 <span class="price-per-item--current">
-                                  {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                  {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
                                 </span>
                               {%- else -%}
                                 {%- for price_break in volume_pricing_array -%}
@@ -259,7 +388,7 @@
                                     {%- assign price_break_price = price_break.price | money_with_currency -%}
                                     <span class="price-per-item--current">
                                       {{-
-                                        'products.product.volume_pricing.price_at_each_html'
+                                        'products.product.volume_pricing.price_at_each'
                                         | t: price: price_break_price
                                       -}}
                                     </span>
@@ -289,13 +418,13 @@
                                   </dt>
                                   <dd>
                                     <span class="price-per-item--current">
-                                      {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                      {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
                                     </span>
                                   </dd>
                                 </dl>
                               {%- else -%}
                                 <span class="price-per-item--current">
-                                  {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                  {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
                                 </span>
                               {%- endif -%}
                             </div>
@@ -339,7 +468,7 @@
                               {%- assign price = product.selected_or_first_available_variant.price
                                 | money_with_currency
                               -%}
-                              <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price }}">
+                              <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}">
                                 {{ 'sections.quick_order_list.each' | t: money: price -}}
                               </span>
                             </li>
@@ -351,7 +480,7 @@
                                   <span aria-hidden="true">+</span></span
                                 >
                                 {%- assign price = price_break.price | money_with_currency -%}
-                                <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: price_break_price }}">
+                                <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: price_break_price }}">
                                   {{ 'sections.quick_order_list.each' | t: money: price -}}
                                 </span>
                               </li>
@@ -374,24 +503,54 @@
                       </volume-pricing>
                     {%- endif -%}
                   </div>
-                {%- when 'share' -%}
-                  {% liquid
-                    assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
-                    render 'share-button', block: block, share_link: share_url
-                  %}
-                {%- when 'variant_picker' -%}
-                  {% render 'product-variant-picker',
-                    product: product,
-                    block: block,
-                    product_form_id: product_form_id
-                  %}
                 {%- when 'buy_buttons' -%}
-                  {%- render 'buy-buttons',
-                    block: block,
-                    product: product,
-                    product_form_id: product_form_id,
-                    section_id: section.id
-                  -%}
+                  <div class="buttons-checkbox">
+                    {%- render 'buy-buttons',
+                      block: block,
+                      product: product,
+                      product_form_id: product_form_id,
+                      section_id: section.id
+                    -%}
+
+                    {%- if block.settings['add-checkbox-below-button'] != blank -%}
+                      <div class="checkbox-container">
+                        <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
+                          <img
+                            src="{{ block.settings.checkbox-1-image | image_url }}"
+                            alt="{{ block.settings.checkbox-1-label }}"
+                            width=""
+                            height=""
+                            class="checkbox-image"
+                          >
+                          {{ block.settings['checkbox-1-label'] }}
+                        </span>
+
+                        <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
+                          <img
+                            src="{{ block.settings.checkbox-2-image | image_url }}"
+                            alt="{{ block.settings.checkbox-2-label }}"
+                            width=""
+                            height=""
+                            class="checkbox-image"
+                          >
+                          {{ block.settings['checkbox-2-label'] }}
+                        </span>
+
+                        <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
+                          <img
+                            src="{{ block.settings.checkbox-3-image | image_url }}"
+                            alt="{{ block.settings.checkbox-3-label }}"
+                            width=""
+                            height=""
+                            class="checkbox-image"
+                          >
+                          {{ block.settings['checkbox-3-label'] }}
+                        </span>
+                      </div>
+                    {% endif %}
+                  </div>
+                  </div>
+
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'rating' -%}
@@ -436,17 +595,20 @@
                   {% render 'icon-with-text', block: block %}
               {%- endcase -%}
             {%- endfor -%}
-            <a
-              {% if product == blank %}
-                role="link" aria-disabled="true"
-              {% else %}
-                href="{{ product.url }}"
-              {% endif %}
-              class="link product__view-details animate-arrow"
-            >
-              {{ 'products.product.view_full_details' | t }}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            </a>
+
+            {% if section.settings['show-details'] %}
+              <a
+                {% if product == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ product.url }}"
+                {% endif %}
+                class="link product__view-details animate-arrow"
+              >
+                {{ 'products.product.view_full_details' | t }}
+                {{- 'icon-arrow.svg' | inline_asset_content -}}
+              </a>
+            {% endif %}
           </section>
         </div>
       </div>
@@ -528,6 +690,22 @@
           ],
           "default": "body",
           "label": "t:sections.featured-product.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "text",
+          "id": "mid_text",
+          "label": "Mid Text"
+        },
+        {
+          "type": "text",
+          "id": "post_text",
+          "label": "Post Text"
+        },
+        {
+          "type": "checkbox",
+          "id": "show-pre-text",
+          "label": "Show pre text",
+          "default": true
         }
       ]
     },
@@ -563,6 +741,16 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "stars_image",
+          "label": "Image below title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "rating_text_coffee_lovers",
+          "label": "Text below title"
         }
       ]
     },
@@ -601,7 +789,15 @@
     {
       "type": "quantity_selector",
       "name": "t:sections.featured-product.blocks.quantity_selector.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show-quantity-cart-label",
+          "label": "Show quantity cart label",
+          "default": true
+        }
+      ]
     },
     {
       "type": "variant_picker",
@@ -660,6 +856,44 @@
           "info": "t:sections.featured-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
         },
         {
+          "type": "text",
+          "id": "checkbox-1-label",
+          "label": "Add checkbox 1 label"
+        },
+        {
+          "type": "image_picker",
+          "id": "checkbox-1-image",
+          "label": "Add checkbox 1 image"
+        },
+        {
+          "type": "image_picker",
+          "id": "checkbox-2-image",
+          "label": "Add checkbox 2 image"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "checkbox-3-image",
+          "label": "Add checkbox 3 image"
+        },
+
+        {
+          "type": "text",
+          "id": "checkbox-2-label",
+          "label": "Add checkbox 2 label"
+        },
+        {
+          "type": "text",
+          "id": "checkbox-3-label",
+          "label": "Add checkbox 3 label"
+        },
+        {
+          "type": "checkbox",
+          "id": "add-checkbox-below-button",
+          "default": true,
+          "label": "Add checkbox below button"
+        },
+        {
           "type": "checkbox",
           "id": "show_gift_card_recipient",
           "default": true,
@@ -678,6 +912,14 @@
           "id": "share_label",
           "label": "t:sections.featured-product.blocks.share.settings.text.label",
           "default": "t:sections.featured-product.blocks.share.settings.text.default"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.featured-product.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.featured-product.blocks.share.settings.title_info.content"
         }
       ]
     },
@@ -1318,6 +1560,23 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
+    },
+    {
+      "type": "box",
+      "name": "About box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "box-heading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "box-text",
+          "label": "Text"
+        }
+      ]
     }
   ],
   "settings": [
@@ -1333,6 +1592,11 @@
       "default": "scheme-1"
     },
     {
+      "type": "color",
+      "id": "checkbox-label-color",
+      "label": "Checkbox label color"
+    },
+    {
       "type": "checkbox",
       "id": "secondary_background",
       "default": false,
@@ -1340,7 +1604,8 @@
     },
     {
       "type": "header",
-      "content": "t:sections.featured-product.settings.header.content"
+      "content": "t:sections.featured-product.settings.header.content",
+      "info": "t:sections.featured-product.settings.header.info"
     },
     {
       "type": "select",
@@ -1360,13 +1625,19 @@
         }
       ],
       "default": "medium",
-      "label": "t:sections.main-product.settings.media_size.label"
+      "label": "t:sections.main-product.settings.media_size.label",
+      "info": "t:sections.main-product.settings.media_size.info"
     },
     {
       "type": "checkbox",
       "id": "constrain_to_viewport",
       "default": true,
       "label": "t:sections.main-product.settings.constrain_to_viewport.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-custom-page-width",
+      "label": "Enable custom page width"
     },
     {
       "type": "select",
@@ -1398,7 +1669,8 @@
         }
       ],
       "default": "left",
-      "label": "t:sections.featured-product.settings.media_position.label"
+      "label": "t:sections.featured-product.settings.media_position.label",
+      "info": "t:sections.featured-product.settings.media_position.info"
     },
     {
       "type": "select",
@@ -1418,7 +1690,8 @@
         }
       ],
       "default": "lightbox",
-      "label": "t:sections.main-product.settings.image_zoom.label"
+      "label": "t:sections.main-product.settings.image_zoom.label",
+      "info": "t:sections.main-product.settings.image_zoom.info"
     },
     {
       "type": "checkbox",
@@ -1455,6 +1728,82 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "color",
+      "id": "post-text-color",
+      "label": "Logo Post text color"
+    },
+    {
+      "type": "color",
+      "id": "quanity-buttons-color",
+      "label": "Quanity buttons color "
+    },
+    {
+      "type": "color",
+      "id": "featured-product-description",
+      "label": "Featured product description color"
+    },
+    {
+      "type": "color",
+      "id": "featured-product-submit-button-background-color",
+      "label": "Submit button backround color"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-sale-tag",
+      "label": "Show sale tag"
+    },
+    {
+      "type": "checkbox",
+      "id": "quantity-button-custom-style",
+      "label": "Add quantity and button custom style"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-details",
+      "label": "Show details"
+    },
+    {
+      "type": "color",
+      "id": "featured-product-submit-button-text-color",
+      "label": "Submit button text color"
+    },
+    {
+      "type": "color",
+      "id": "price-sale-text-color",
+      "label": "Sale price text color"
+    },
+    {
+      "type": "color",
+      "id": "price-regular-text-color",
+      "label": "Regular price text color"
+    },
+    {
+      "type": "color",
+      "id": "mid-text-color",
+      "label": "Logo Mid text color"
+    },
+    {
+      "type": "color",
+      "id": "post-background-color",
+      "label": "Logo Post Background color"
+    },
+    {
+      "type": "color",
+      "id": "mid-background-color",
+      "label": "Logo Mid Background  color"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-custom-styling",
+      "label": "Include custom styling",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "product-title-color",
+      "label": "Product title color"
     }
   ],
   "presets": [

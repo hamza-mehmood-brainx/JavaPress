@@ -52,8 +52,10 @@
         "text_DREAGN",
         "buttons_6LVh6j"
       ],
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/Rectangle_9.png",
+        "image_2": "shopify://shop_images/Group_164633_1.png",
         "banner-img-bg-color": "#49918c",
         "your-text-color": "#ffffff",
         "Perfect-text-color": "#deb126",
@@ -143,7 +145,7 @@
       "settings": {
         "title": "Try Our Best Sellers",
         "heading_size": "h1",
-        "description": "",
+        "description": "<p>sxcvx</p>",
         "show_description": true,
         "description_style": "body",
         "collection": "coffee",
@@ -170,6 +172,7 @@
         "padding_top": 20,
         "padding_bottom": 36,
         "review-text": "( 1171 Reviews )",
+        "review-image": "shopify://shop_images/5-star-rating.png",
         "add-to-cart-button": true,
         "add-to-cart-button-text-color": "#fdfdfd",
         "add-to-cart-button-background-color": "#ef4444",
@@ -178,74 +181,116 @@
         "multiple-collections-background-color": "#f2f2f2"
       }
     },
-    "featured_product_CHWhk3": {
+    "featured_product_YrQjbj": {
       "type": "featured-product",
       "blocks": {
-        "text_cgtjJE": {
+        "text_gHKxnG": {
           "type": "text",
           "settings": {
             "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
+            "text_style": "uppercase",
+            "mid_text": "Best Saler",
+            "post_text": "Staff Pick",
+            "show-pre-text": false
           }
         },
-        "title_G8endE": {
+        "title_z87Awt": {
           "type": "title",
           "settings": {
-            "heading_size": "h1"
+            "heading_size": "h2",
+            "stars_image": "shopify://shop_images/5-star-rating.png",
+            "rating_text_coffee_lovers": "4.9/5.00  ( 117 Reviews )"
           }
         },
-        "price_gHHFzb": {
+        "price_nGDnkR": {
           "type": "price",
           "settings": {}
         },
-        "variant_picker_dxQ4KV": {
+        "text_6DeANa": {
+          "type": "text",
+          "settings": {
+            "text": "Pure Vitamin C easily dissolvable in liquids for gentle ingestion and improved absorption. Rigorously tested to ensure freedom from GMOs, corn, and other impurities.",
+            "text_style": "body",
+            "mid_text": "",
+            "post_text": "",
+            "show-pre-text": true
+          }
+        },
+        "variant_picker_xzmG4h": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
+            "picker_type": "dropdown",
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector_ipkHLn": {
+        "quantity_selector_HnJGNn": {
           "type": "quantity_selector",
-          "settings": {}
+          "settings": {
+            "show-quantity-cart-label": true
+          }
         },
-        "buy_buttons_zTdV9L": {
+        "buy_buttons_XcBwwf": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
+            "checkbox-1-label": "Secure Checkout",
+            "checkbox-1-image": "shopify://shop_images/lets-icons_check-fill.png",
+            "checkbox-2-image": "shopify://shop_images/lets-icons_check-fill.png",
+            "checkbox-3-image": "shopify://shop_images/lets-icons_check-fill.png",
+            "checkbox-2-label": "Secure Shipping",
+            "checkbox-3-label": "Satisfaction Guarantee",
+            "add-checkbox-below-button": true,
             "show_gift_card_recipient": true
           }
         },
-        "share_JynL4q": {
+        "share_46bRUH": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "text_cgtjJE",
-        "title_G8endE",
-        "price_gHHFzb",
-        "variant_picker_dxQ4KV",
-        "quantity_selector_ipkHLn",
-        "buy_buttons_zTdV9L",
-        "share_JynL4q"
+        "text_gHKxnG",
+        "title_z87Awt",
+        "price_nGDnkR",
+        "text_6DeANa",
+        "variant_picker_xzmG4h",
+        "quantity_selector_HnJGNn",
+        "buy_buttons_XcBwwf",
+        "share_46bRUH"
       ],
-      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "",
+        "product": "roasted-coffee-grinder-chocolate-flavour",
         "color_scheme": "",
+        "checkbox-label-color": "",
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,
+        "enable-custom-page-width": false,
         "media_fit": "contain",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "none",
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "post-text-color": "#ffffff",
+        "quanity-buttons-color": "#d3d3d3",
+        "featured-product-description": "",
+        "featured-product-submit-button-background-color": "#ef4444",
+        "show-sale-tag": false,
+        "quantity-button-custom-style": true,
+        "show-details": false,
+        "featured-product-submit-button-text-color": "#ffffff",
+        "price-sale-text-color": "#ef4444",
+        "price-regular-text-color": "#8e8484",
+        "mid-text-color": "#242833",
+        "post-background-color": "#424242",
+        "mid-background-color": "#ece03a",
+        "show-custom-styling": true,
+        "product-title-color": "#121212"
       }
     }
   },
@@ -253,6 +298,6 @@
     "image_banner_KX9HyU",
     "featured_collection",
     "best_sellers_custom_bXtPLL",
-    "featured_product_CHWhk3"
+    "featured_product_YrQjbj"
   ]
 }
