@@ -9,6 +9,7 @@
     0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
   --homepage-red: #ef4444;
   --black: #000000;
+  --gray: #d9d9d9;
 }
 
 @font-face {
