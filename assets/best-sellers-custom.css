@@ -61,11 +61,11 @@
 .add-to-cart-button::after {
   box-shadow: none !important;
 }
-.title-wrapper .main-section-title {
+.collection-main-section .title-wrapper .main-section-title {
   text-align: center;
   font-size: 32px;
   font-family: "Raleway-Bold";
-  margin-bottom: 35px;
+  margin-bottom: 35px !important;
 }
 .no-overflow {
   overflow: hidden !important;
