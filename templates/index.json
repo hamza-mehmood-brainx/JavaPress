@@ -12,14 +12,6 @@
     "image_banner_KX9HyU": {
       "type": "image-banner",
       "blocks": {
-        "heading_3j6HBB": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
         "text_DREAGN": {
           "type": "text",
           "settings": {
@@ -48,7 +40,6 @@
         }
       },
       "block_order": [
-        "heading_3j6HBB",
         "text_DREAGN",
         "buttons_6LVh6j"
       ],
@@ -77,35 +68,6 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
       }
     },
     "best_sellers_custom_bXtPLL": {
@@ -264,7 +226,7 @@
       "settings": {
         "product": "roasted-coffee-grinder-chocolate-flavour",
         "color_scheme": "",
-        "checkbox-label-color": "",
+        "checkbox-label-color": "#075d57",
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,
@@ -277,7 +239,7 @@
         "padding_top": 36,
         "padding_bottom": 36,
         "post-text-color": "#ffffff",
-        "quanity-buttons-color": "#d3d3d3",
+        "quanity-buttons-color": "#f2f2f2",
         "featured-product-description": "",
         "featured-product-submit-button-background-color": "#ef4444",
         "show-sale-tag": false,
@@ -296,7 +258,6 @@
   },
   "order": [
     "image_banner_KX9HyU",
-    "featured_collection",
     "best_sellers_custom_bXtPLL",
     "featured_product_YrQjbj"
   ]

@@ -117,7 +117,7 @@
   <section class="color-{{ section.settings.color_scheme }} {% if section.settings.secondary_background %}background-secondary{% else %}gradient{% endif %}">
     <div
       class="
-        page-width section-{{ section.id }}-padding{% if section.settings.secondary_background %} isolate{% endif %}
+        page-width featured-product-wrapper section-{{ section.id }}-padding{% if section.settings.secondary_background %} isolate{% endif %}
         {% if section.settings.enable-custom-page-width %} page-section-custom {% endif %}
       "
     >
@@ -194,7 +194,7 @@
                     {{ block.shopify_attributes }}
                   >
                     {%- unless placeholder -%}
-                      <a href="{{ product.url }}" title="{{ product.title | escape }}">
+                      <a href="{{ product.url }}" class="product-link" title="{{ product.title | escape }}">
                         {{ product.title | escape }}
                       </a>
                     {%- else -%}

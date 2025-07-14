@@ -64,7 +64,7 @@
         "padding_top": 40,
         "padding_bottom": 52,
         "include-custom-style": true,
-        "newsletter-button-text": "Subscribe Now →",
+        "newsletter-button-text": "Subscribe",
         "add-button-text": true,
         "add-button-arrow-icon": false,
         "button-background-color": "#ef4444",

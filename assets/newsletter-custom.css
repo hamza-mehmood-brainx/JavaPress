@@ -1,9 +1,9 @@
 .newsletter-title-text {
   font-family: "Raleway-Bold";
 }
-.newsletter-button-email {
-  width: 100% !important;
-  max-width: 30% !important;
+.email-field .newsletter-button-email {
+  width: 100%;
+  max-width: 30%;
   min-width: 30%;
   font-size: 16px;
   font-family: "Raleway-Bold";
@@ -32,14 +32,16 @@
   justify-content: center;
   align-items: center;
 }
-.newsletter-wrapper-main .newletter-form-main {
+.newsletter .newsletter-wrapper-main .newletter-form-main {
   max-width: 900px;
   width: 100%;
-  margin-bottom: 20px !important;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
-.newsletter-wrapper-main .newletter-form-main .newsletter-form {
+.newsletter .newsletter-wrapper-main .newletter-form-main .newsletter-form {
   max-width: 80% !important;
-  width: 100% !important;
+  width: 100%;
 }
 .newsletter-wrapper-main .newletter-form-main .newsletter-field-wrapper {
   max-width: 100%;
@@ -48,11 +50,14 @@
   background-color: var(--gray);
   border-radius: 5px;
 }
-.newsletter-email-form,
-.newsletter-email-form .newsletter-form__field-wrapper,
+.newsletter-wrapper-main .newletter-form-main .newsletter-email-form,
+.newsletter-wrapper-main
+  .newletter-form-main
+  .newsletter-email-form
+  .newsletter-form__field-wrapper,
 .field .field__input {
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
+  max-width: 100%;
   min-width: 80%;
 }
 .email-label-placeholder-main {
@@ -61,8 +66,8 @@
   align-items: center;
   gap: 10px;
 }
-.email-field::after {
-  box-shadow: none !important;
+.newsletter-form .newsletter-field-wrapper .email-field::after {
+  box-shadow: none;
 }
 .subhead-text-one,
 .subhead-text-two,
@@ -73,8 +78,8 @@
 .subhead-text-two {
   font-family: "Raleway-Bold";
 }
-.email-input-main-field:focus {
-  box-shadow: none !important;
+.newsletter-field-wrapper .email-field .email-input-main-field:focus {
+  box-shadow: none;
 }
 @media screen and (max-width: 1280px) {
   .newsletter-wrapper-main .newletter-form-main {
@@ -83,43 +88,45 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .newsletter-email-form,
+  /* .newsletter-email-form,
   .newsletter-email-form .newsletter-form__field-wrapper,
   .field .field__input {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 100%;
-  }
+  } */
   .newslteter-heading {
     font-size: 26px;
   }
 }
 
 @media screen and (max-width: 980px) {
-  .newslteter-heading {
+  /* .newslteter-heading {
     font-size: 18px;
     width: 260px;
-  }
+  } */
 }
 @media screen and (max-width: 767px) {
-  .newsletter-wrapper-main .newletter-form-main {
-    max-width: 100%;
+  .newsletter .newsletter-wrapper-main .newletter-form-main .newsletter-form {
+    max-width: 100% !important;
     width: 100%;
   }
-  .newletter-form-main .newsletter-form {
-    max-width: 100% !important;
-    width: 100% !important;
+  .newslteter-heading {
+    width: 260px;
+    font-size: 18px;
   }
-  .newsletter-wrapper-main {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+  .newsletter .newsletter-wrapper-main {
+    padding-left: 15px;
+    padding-right: 15px;
   }
-  .newsletter-button-email {
-    max-width: 40% !important;
-    font-size: 14px;
-  }
+
   .input-field-label {
     font-size: 12px;
     padding-top: 4px;
+  }
+
+  .email-field .newsletter-button-email {
+    font-size: 14px;
+    max-width: 40%;
   }
 }

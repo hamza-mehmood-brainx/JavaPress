@@ -53,7 +53,8 @@
   line-height: 25px;
 }
 .footer-break {
-  width: 80%;
+  max-width: 1200px;
+  /* width: 100%; */
   opacity: 26%;
   margin: auto;
 }
@@ -90,11 +91,12 @@
   .footer-logo-main-div {
     margin-right: 0;
   }
-  .footer-rating-star-text {
-    min-width: unset !important;
-    max-width: unset !important;
-  }
+
   .footer-rating-text-coffee {
     display: none;
+  }
+
+  .footer-break {
+    width: 90%;
   }
 }
