@@ -128,7 +128,6 @@
         "include-custom-style": true,
         "show-collection-tabs": true,
         "show-collection-product-card": true,
-        "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 20,
@@ -168,14 +167,10 @@
           "type": "price",
           "settings": {}
         },
-        "text_6DeANa": {
-          "type": "text",
+        "product_description_bJDQKp": {
+          "type": "product_description",
           "settings": {
-            "text": "Pure Vitamin C easily dissolvable in liquids for gentle ingestion and improved absorption. Rigorously tested to ensure freedom from GMOs, corn, and other impurities.",
-            "text_style": "body",
-            "mid_text": "",
-            "post_text": "",
-            "show-pre-text": true
+            "text_style": "body"
           }
         },
         "variant_picker_xzmG4h": {
@@ -217,7 +212,7 @@
         "text_gHKxnG",
         "title_z87Awt",
         "price_nGDnkR",
-        "text_6DeANa",
+        "product_description_bJDQKp",
         "variant_picker_xzmG4h",
         "quantity_selector_HnJGNn",
         "buy_buttons_XcBwwf",

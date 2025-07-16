@@ -149,19 +149,19 @@
               {%- case block.type -%}
                 {%- when '@app' -%}
                   {% render block %}
-                {%- when 'text' -%}
-                  {%- if block.settings['show-pre-text'] -%}
-                    <p
+                {%- when 'product_description' -%}
+                  {% if product.description != blank %}
+                    <div
                       class="
-                        featured-product-description  {% if section.settings.featured-product-description %} featured-product-description {% endif %}
+                        featured-product-description {% if section.settings.featured-product-description %} featured-product-description {% endif %}
                         product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}
                       "
                       {{ block.shopify_attributes }}
                     >
-                      {{- block.settings.text -}}
-                    </p>
+                      {{ product.description }}
+                    </div>
                   {% endif %}
-
+                {%- when 'text' -%}
                   {%- if block.settings.mid_text != blank and block.settings.post_text != blank -%}
                     <div class="product-text-logos">
                       {%- if block.settings.mid_text -%}
@@ -706,6 +706,24 @@
           "id": "show-pre-text",
           "label": "Show pre text",
           "default": true
+        }
+      ]
+    },
+    {
+      "type": "product_description",
+      "name": "Product Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_style",
+          "label": "Text style",
+          "default": "body",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" },
+            { "value": "uppercase", "label": "Uppercase" }
+          ]
         }
       ]
     },
