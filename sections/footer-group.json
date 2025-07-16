@@ -64,9 +64,9 @@
         "padding_top": 40,
         "padding_bottom": 52,
         "include-custom-style": true,
-        "newsletter-button-text": "Subscribe",
+        "newsletter-button-text": "Subscribe Now",
         "add-button-text": true,
-        "add-button-arrow-icon": false,
+        "add-button-arrow-icon": true,
         "button-background-color": "#ef4444",
         "button-text-color": "#ffffff",
         "email-field-background-color": "#d9d9d9",
@@ -146,7 +146,6 @@
         "add-footer-logo": true,
         "add-rating": true,
         "add-images": true,
-        "footer-logo-main-div": true,
         "add-footer-break": true,
         "footer-line-break-color": "#ffffff"
       }

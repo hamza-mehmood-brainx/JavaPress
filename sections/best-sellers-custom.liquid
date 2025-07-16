@@ -154,9 +154,7 @@
                               show_add_to_cart_button: section.settings['add-to-cart-button'],
                               show_image_below_title: section.settings['review-image'],
                               show_rating: section.settings.show_rating,
-                              skip_styles: skip_card_product_styles,
-                              section_id: section.id,
-                              quick_add: section.settings.quick_add
+                              section_id: section.id
                             %}
                           </div>
                         {%- endfor -%}
@@ -443,8 +441,7 @@
         }
       ],
       "default": "default",
-      "label": "t:sections.all.image_shape.label",
-      "info": "t:sections.all.image_shape.info"
+      "label": "t:sections.all.image_shape.label"
     },
     {
       "type": "checkbox",
@@ -489,27 +486,6 @@
       "id": "show-collection-product-card",
       "default": true,
       "label": "Show collection product card"
-    },
-    {
-      "type": "select",
-      "id": "quick_add",
-      "default": "none",
-      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
-      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
-        },
-        {
-          "value": "standard",
-          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
-        },
-        {
-          "value": "bulk",
-          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
-        }
-      ]
     },
     {
       "type": "header",

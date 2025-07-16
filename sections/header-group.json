@@ -61,8 +61,8 @@
         "button_BXbbCw": {
           "type": "button",
           "settings": {
-            "button_text_desktop": "Shop",
-            "button_text_mobile": "Click Me",
+            "button_text_desktop": "SHOP NOW →",
+            "button_text_mobile": "SHOP",
             "button_color": "#ef4444",
             "button_link": "/"
           }
