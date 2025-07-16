@@ -17,17 +17,13 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "We are here to help as your coffee concierge!!",
-            "link": "shopify://collections/coffee",
-            "highlight": "TAKE THE SURVEY"
+            "content": "We are here to help as your coffee concierge!  <a href=\"/collections\" title=\"All collections\"><strong>TAKE THE SURVEY</strong></a>"
           }
         },
         "announcement_gKm9WM": {
           "type": "announcement",
           "settings": {
-            "text": "We are here to help as your coffee concierge!",
-            "link": "shopify://collections/coffee",
-            "highlight": "TAKE THE SURVEY"
+            "content": "We are here to help as your coffee concierge!  <a href=\"/collections\" title=\"All collections\"><strong>TAKE THE SURVEY</strong></a>"
           }
         }
       },
