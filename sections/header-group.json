@@ -47,13 +47,6 @@
     "header": {
       "type": "header",
       "blocks": {
-        "image_picker_N34dF7": {
-          "type": "image_picker",
-          "settings": {
-            "image": "shopify://shop_images/iconoir_simple-cart.png",
-            "alt_text": "Cart icon"
-          }
-        },
         "button_BXbbCw": {
           "type": "button",
           "settings": {
@@ -65,10 +58,10 @@
         }
       },
       "block_order": [
-        "image_picker_N34dF7",
         "button_BXbbCw"
       ],
       "settings": {
+        "custom_cart_icon": "shopify://shop_images/iconoir_simple-cart.svg",
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "main-menu",
