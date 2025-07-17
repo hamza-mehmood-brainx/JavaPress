@@ -2,6 +2,7 @@
   list-style-type: none;
   font-size: 20px;
   font-family: "Raleway-Medium";
+  min-width: 75px;
 }
 .collection-tabs-navigation {
   display: flex;
@@ -10,6 +11,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
+  overflow-x: scroll;
 }
 .hidden {
   display: none !important;
@@ -19,7 +21,7 @@
 }
 .title-wrapper .collection-tabs-navigation .active {
   text-decoration: underline;
-  text-underline-offset: 18px;
+  text-underline-offset: 9px;
   text-decoration-thickness: 1px;
 }
 .swiper-container .swiper-button-next,
@@ -42,6 +44,7 @@
   font-size: 14px;
   font-family: "Raleway-Bold";
   margin: 0;
+  color: var(--review-color);
 }
 .price__container .price__sale .price-sale-text {
   font-size: 20px;
@@ -57,6 +60,7 @@
   font-family: "Raleway-Bold";
   font-size: 18px;
   border-radius: 5px;
+  text-transform: uppercase;
 }
 .card-information .quick-add .add-to-cart-button::after {
   box-shadow: none;
@@ -98,8 +102,8 @@
   background: var(--black);
 }
 .swiper-pagination .swiper-pagination-bullet-active {
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
 }
 .swiper-container .swiper-pagination {
   transform: translateY(15px);
@@ -130,8 +134,8 @@
     font-size: 12px;
   }
   .title-wrapper .collection-tabs-navigation {
-    padding-left: 0;
-    gap: 15px;
+    padding-left: 40px;
+    gap: 10px;
   }
   .card-information .quick-add .add-to-cart-button {
     max-width: 100%;
@@ -153,5 +157,15 @@
   }
   .shopify-section .collection-main-section .title-wrapper .main-section-title {
     font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .star-rating-text-image .show-text-below-product-title {
+    font-size: 10px;
+  }
+  .card-information .quick-add .add-to-cart-button {
+    height: 40px;
+    font-size: 12px;
   }
 }

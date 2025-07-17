@@ -28,13 +28,13 @@
         "buttons_6LVh6j": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Browse All Products  →",
+            "button_label_1": "BROWSW ALL PRODUCTS  →",
             "button_link_1": "shopify://collections/coffee",
             "button_style_secondary_1": false,
-            "button_label_2": "Take Your Free Survey now  →",
+            "button_label_2": "TAKE YOUR FREE SURVEY NOW  →",
             "button_link_2": "shopify://collections/coffee",
             "button_style_secondary_2": false,
-            "stars_image": "shopify://shop_images/5-star-rating.png",
+            "stars_image": "shopify://shop_images/5-star-rating.svg",
             "rating_text_coffee_lovers": "4.9/5.00 (10,000+ people living healthy lifestyle)"
           }
         }
@@ -133,7 +133,7 @@
         "padding_top": 20,
         "padding_bottom": 36,
         "review-text": "( 1171 Reviews )",
-        "review-image": "shopify://shop_images/5-star-rating.png",
+        "review-image": "shopify://shop_images/5-star-rating_1.svg",
         "add-to-cart-button": true,
         "add-to-cart-button-text-color": "#fdfdfd",
         "add-to-cart-button-background-color": "#ef4444",
@@ -159,7 +159,7 @@
           "type": "title",
           "settings": {
             "heading_size": "h2",
-            "stars_image": "shopify://shop_images/5-star-rating.png",
+            "stars_image": "shopify://shop_images/5-star-rating.svg",
             "rating_text_coffee_lovers": "4.9/5.00  ( 117 Reviews )"
           }
         },

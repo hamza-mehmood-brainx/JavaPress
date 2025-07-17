@@ -17,7 +17,7 @@
         "title_h9qJyM": {
           "type": "title",
           "settings": {
-            "title-text": "Newsletter subscripion",
+            "title-text": "NEWSLETTER SUBSCRIPTION",
             "title-image": "shopify://shop_images/Group_44.svg"
           }
         },
@@ -64,7 +64,7 @@
         "padding_top": 40,
         "padding_bottom": 52,
         "include-custom-style": true,
-        "newsletter-button-text": "Subscribe Now",
+        "newsletter-button-text": "Subscribe",
         "add-button-text": true,
         "add-button-arrow-icon": true,
         "button-background-color": "#ef4444",
@@ -89,7 +89,7 @@
             "link1": "shopify://collections",
             "link2": "shopify://collections",
             "link3": "shopify://collections",
-            "stars_image": "shopify://shop_images/5-star-rating.png",
+            "stars_image": "shopify://shop_images/5-star-rating.svg",
             "rating_text_coffee_lovers": "4.9/5.00  (Serviced 6,000,000+ Coffee Lovers)"
           }
         },

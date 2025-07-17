@@ -40,6 +40,10 @@
   font-size: 96px;
 }
 
+.perfect-routine-head {
+  z-index: 100;
+}
+
 .multiple-banner-buttons {
   max-width: 100% !important;
 }
@@ -54,6 +58,7 @@
 .banner-heading {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .main-img-banner-content .banner-text-section .browse-button,
 .main-img-banner-content .banner-text-section .survey-button {
@@ -104,7 +109,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 .banner-text-section .banner-text-image {
   width: 90%;
@@ -125,9 +130,12 @@
     font-size: 14px;
   }
   .your-text,
-  .routine-text,
-  .perfect-text {
+  .routine-text {
     font-size: 58px;
+  }
+
+  .perfect-routine-head .perfect-text {
+    font-size: 80px;
   }
 }
 
@@ -144,7 +152,7 @@
   }
   .main-img-banner-content .banner-text-section .browse-button,
   .main-img-banner-content .banner-text-section .survey-button {
-    font-size: 12px;
+    font-size: 14px;
   }
   .banner-content-main-custom .main-img-banner-content {
     max-width: 59% !important;
@@ -153,6 +161,19 @@
   .routine-text,
   .perfect-text {
     font-size: 42px;
+  }
+  .perfect-routine-head {
+    line-height: 0;
+  }
+  .perfect-routine-head .perfect-text {
+    z-index: -1;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .perfect-routine-head .perfect-text {
+    position: absolute;
+    bottom: 82px;
   }
 }
 
@@ -167,10 +188,12 @@
     bottom: 0px;
   }
   .your-text,
-  .routine-text,
-  .perfect-text {
+  .routine-text {
     font-size: 42px;
     font-family: "Raleway-Bold";
+  }
+  .perfect-routine-head .perfect-text {
+    font-size: 65px;
   }
   .banner-text-section .banner-text-image {
     width: 60%;
@@ -222,8 +245,14 @@
 }
 @media screen and (max-width: 330px) {
   .your-text,
-  .routine-text,
-  .perfect-text {
+  .routine-text {
     font-size: 25px;
+  }
+  .perfect-routine-head .perfect-text {
+    font-size: 40px;
+  }
+
+  .rating-text-coffee {
+    display: block;
   }
 }
