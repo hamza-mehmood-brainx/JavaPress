@@ -1,6 +1,58 @@
+{% if section.settings['show-custom-styling'] %}
+  {{ 'main-product-custom.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+<script src="{{ 'main-product.js' | asset_url }}" defer="defer"></script>
+
+<style>
+  #shopify-section-{{ section.id }} .mid-text-color{
+    color: {{ section.settings.mid-text-color }};
+  }
+  #shopify-section-{{ section.id }} .post-text-color{
+    color: {{ section.settings.post-text-color }};
+  }
+  #shopify-section-{{ section.id }} .mid-background-color{
+    background-color: {{ section.settings.mid-background-color }};
+  }
+  #shopify-section-{{ section.id }} .post-background-color{
+    background-color: {{ section.settings.post-background-color }};
+  }
+  #shopify-section-{{ section.id }} .main-product-heading-main .main-product-heading,  .main-product-description-text
+  {
+    color: {{ section.settings.main-product-information-color }};
+  }
+  #shopify-section-{{ section.id }} .price-sale-text-color{
+    color: {{ section.settings.price-sale-text-color }} !important;
+  }
+  #shopify-section-{{ section.id }} .price-regular-text-color{
+    color: {{ section.settings.price-regular-text-color }} !important;
+  }
+  #shopify-section-{{ section.id }} .featured-product-submit-button-background-color{
+    background-color: {{ section.settings.featured-product-submit-button-background-color }};
+  }
+  #shopify-section-{{ section.id }} .featured-product-submit-button-text-color{
+    color: {{ section.settings.featured-product-submit-button-text-color }};
+  }
+  #shopify-section-{{ section.id }} .about-box-main{
+    background-color: {{ section.settings.about-box-background-color }};
+  }
+  #shopify-section-{{ section.id }} .about-box-main .about-heading, .about-box-main .about-text, .accordion-name  .accordion-button{
+    color: {{ section.settings.main-product-information-color }};
+  }
+  #shopify-section-{{ section.id }} .accordion-item{
+    background-color: {{ section.settings.about-box-background-color }};
+  }
+  #shopify-section-{{ section.id }} .quantity-input-field .quantity-btn-product-minus,.quantity-input-field .quantity-btn-product-plus {
+    background-color: {{ section.settings.quanity-buttons-color }} !important;
+  }
+  #shopify-section-{{ section.id }} .checkbox-label-color{
+    color: {{ section.settings.checkbox-label-color }};
+  }
+</style>
+
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="main-product-section-main section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -78,7 +130,7 @@
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
-      <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="product-info-wrapper-custom product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
@@ -90,23 +142,72 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
-                <p
-                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                  {{ block.shopify_attributes }}
-                >
-                  {{- block.settings.text -}}
-                </p>
+                {%- if block.settings['show-pre-text'] -%}
+                  <p
+                    class="main-product-description-text product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{- block.settings.text -}}
+                  </p>
+                {% endif %}
+                {%- if block.settings.mid_text != blank and block.settings.post_text != blank -%}
+                  <div class="product-text-logos">
+                    {%- if block.settings.mid_text -%}
+                      <p
+                        class="
+                          mid-text {% if section.settings.mid-text-color %} mid-text-color {% endif %}
+                          {% if section.settings.mid-background-color %} mid-background-color {% endif %}
+                        "
+                      >
+                        {{ block.settings.mid_text }}
+                      </p>
+                    {%- endif -%}
+
+                    {%- if block.settings.post_text -%}
+                      <p
+                        class="
+                          post-text {% if section.settings.post-text-color %} post-text-color {% endif %}
+                          {% if section.settings.post-background-color %} post-background-color {% endif %}
+                        "
+                      >
+                        {{ block.settings.post_text }}
+                      </p>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
               {%- when 'title' -%}
-                <div class="product__title" {{ block.shopify_attributes }}>
-                  <h1>{{ product.title | escape }}</h1>
+                <div class="product__title main-product-heading-main" {{ block.shopify_attributes }}>
+                  <h1 class="main-product-heading">{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
                     </h2>
                   </a>
                 </div>
+
+                {%- if block.settings.stars_image != blank and block.settings.rating_text_coffee_lovers != blank -%}
+                  <div class="rating-text-coffee">
+                    <img
+                      class="rating-star-image"
+                      src="{{ block.settings.stars_image | image_url }}"
+                      alt="img_text"
+                      width=""
+                      height=""
+                    >
+                    <p class="rating-star-text {% if section.settings.star_text-color %} custom-star-text-color {% endif %}">
+                      {{ block.settings.rating_text_coffee_lovers }}
+                    </p>
+                  </div>
+                {% endif %}
+
               {%- when 'price' -%}
-                <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
+                <div
+                  id="price-{{ section.id }}"
+                  role="status"
+                  {{ block.shopify_attributes }}
+                  class="main-product-price-template"
+                >
                   {%- render 'price',
                     product: product,
                     use_variant: true,
@@ -227,10 +328,38 @@
                     </div>
                   </details>
                 </div>
+
+              {%- when 'popup' -%}
+                <modal-opener
+                  class="product-popup-modal__opener quick-add-hidden"
+                  data-modal="#PopupModal-{{ block.id }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <button
+                    id="ProductPopup-{{ block.id }}"
+                    class="product-popup-modal__button link"
+                    type="button"
+                    aria-haspopup="dialog"
+                  >
+                    {{ block.settings.text | default: block.settings.page.title | escape }}
+                  </button>
+                </modal-opener>
+              {%- when 'share' -%}
+                {% liquid
+                  assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
+                  render 'share-button', block: block, share_link: share_url
+                %}
+
+              {%- when 'variant_picker' -%}
+                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+
+                <div
+                  class="{% if section.settings.quantity-button-custom-style %} quantity-button-custom-style {% endif %}"
+                >
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
-                  class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                  class="quantity-main  product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
@@ -239,20 +368,27 @@
                     | item_count_for_variant: product.selected_or_first_available_variant.id
                   -%}
                   {% # theme-check-enable %}
-                  <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
-                    {{ 'products.product.quantity.label' | t }}
+                  <label class=" quantity-label quantity__label form__label" for="Quantity-{{ section.id }}">
+                    {{ 'products.product.quantity.label' | t }}:
+
                     <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
                       {%- render 'loading-spinner' -%}
-                      <span
-                        >(
-                        {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
-                        )</span
-                      >
+                      {% if block.settings['show-quantity-cart-label'] %}
+                        <span
+                          >(
+                          {{- 'products.product.quantity.in_cart_html' | t: quantity: cart_qty -}}
+                          )</span
+                        >
+                      {% endif %}
                     </span>
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                      <button class="quantity__button" name="minus" type="button">
+                    <quantity-input
+                      class="quantity-input-field quantity"
+                      data-url="{{ product.url }}"
+                      data-section="{{ section.id }}"
+                    >
+                      <button class="quantity-btn-product-minus quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                         </span>
@@ -276,7 +412,7 @@
                         value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         form="{{ product_form_id }}"
                       >
-                      <button class="quantity__button" name="plus" type="button">
+                      <button class="quantity-btn-product-plus quantity__button" name="plus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                         </span>
@@ -318,7 +454,7 @@
                                 | money_with_currency
                               -%}
                               <span class="price-per-item--current">
-                                {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
                               </span>
                             {%- else -%}
                               {%- for price_break in volume_pricing_array -%}
@@ -326,7 +462,7 @@
                                   {%- assign price_break_price = price_break.price | money_with_currency -%}
                                   <span class="price-per-item--current">
                                     {{-
-                                      'products.product.volume_pricing.price_at_each_html'
+                                      'products.product.volume_pricing.price_at_each'
                                       | t: price: price_break_price
                                     -}}
                                   </span>
@@ -356,13 +492,13 @@
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
                                   </span>
                                 </dd>
                               </dl>
                             {%- else -%}
                               <span class="price-per-item--current">
-                                {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                {{- 'products.product.volume_pricing.price_at_each' | t: price: variant_price -}}
                               </span>
                             {%- endif -%}
                           </div>
@@ -406,7 +542,7 @@
                             {%- assign price = product.selected_or_first_available_variant.price
                               | money_with_currency
                             -%}
-                            <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price }}">
+                            <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: variant_price }}">
                               {{- 'sections.quick_order_list.each' | t: money: price -}}
                             </span>
                           </li>
@@ -417,7 +553,7 @@
                                 {{- price_break.minimum_quantity -}}
                                 <span aria-hidden="true">+</span></span
                               >
-                              <span data-text="{{ 'products.product.volume_pricing.price_at_each_html' | t: price: price_break_price }}">
+                              <span data-text="{{ 'products.product.volume_pricing.price_at_each' | t: price: price_break_price }}">
                                 {{- 'sections.quick_order_list.each' | t: money: price_break_price -}}
                               </span>
                             </li>
@@ -440,37 +576,81 @@
                     </volume-pricing>
                   {%- endif -%}
                 </div>
-              {%- when 'popup' -%}
-                <modal-opener
-                  class="product-popup-modal__opener quick-add-hidden"
-                  data-modal="#PopupModal-{{ block.id }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <button
-                    id="ProductPopup-{{ block.id }}"
-                    class="product-popup-modal__button link"
-                    type="button"
-                    aria-haspopup="dialog"
-                  >
-                    {{ block.settings.text | default: block.settings.page.title | escape }}
-                  </button>
-                </modal-opener>
-              {%- when 'share' -%}
-                {% liquid
-                  assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
-                  render 'share-button', block: block, share_link: share_url
-                %}
-
-              {%- when 'variant_picker' -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+                <div class="buttons-checkbox">
+                  {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
+
+                  {%- if block.settings['add-checkbox-below-button'] != blank -%}
+                    <div class="checkbox-container">
+                      <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
+                        <img
+                          src="{{ block.settings.checkbox-1-image | image_url }}"
+                          alt="{{ block.settings.checkbox-1-label }}"
+                          width=""
+                          height=""
+                          class="checkbox-image"
+                        >
+                        {{ block.settings['checkbox-1-label'] }}
+                      </span>
+
+                      <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
+                        <img
+                          src="{{ block.settings.checkbox-2-image | image_url }}"
+                          alt="{{ block.settings.checkbox-2-label }}"
+                          width=""
+                          height=""
+                          class="checkbox-image"
+                        >
+                        {{ block.settings['checkbox-2-label'] }}
+                      </span>
+
+                      <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
+                        <img
+                          src="{{ block.settings.checkbox-3-image | image_url }}"
+                          alt="{{ block.settings.checkbox-3-label }}"
+                          width=""
+                          height=""
+                          class="checkbox-image"
+                        >
+                        {{ block.settings['checkbox-3-label'] }}
+                      </span>
+                    </div>
+                  {% endif %}
+                </div>
+                </div>
+
+              {%- when 'box' -%}
+                <div class="about-box-main">
+                  <p class="about-heading">{{ block.settings['box-heading'] }}</p>
+                  <p class="about-text">{{ block.settings['box-text'] }}</p>
+                </div>
+
+              {% when 'accordion' %}
+                <div class="accordion-item">
+                  <!-- Accordion Heading -->
+                  <div class="accordion-name">
+                    <p class="accordion-title-text">{{ block.settings.accordion_heading }}</p>
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="content--{{ block.id }}"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <!-- Accordion Content -->
+                  <div class="accordion-content" id="content--{{ block.id }}" style="display: none;">
+                    <p class="accordion-content-text">{{ block.settings.accordion_text }}</p>
+                  </div>
+                </div>
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -483,6 +663,7 @@
                         assign rating_decimal = 1
                       endif
                     %}
+
                     <div
                       class="rating"
                       role="img"
@@ -509,6 +690,7 @@
                     </p>
                   </div>
                 {%- endif -%}
+
               {%- when 'complementary' -%}
                 <product-recommendations
                   class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
@@ -651,6 +833,7 @@
                       </div>
                     </aside>
                   {%- endif -%}
+
                   {{ 'component-card.css' | asset_url | stylesheet_tag }}
                   {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
                   {%- if block.settings.enable_quick_add -%}
@@ -744,6 +927,22 @@
           "label": "t:sections.main-product.blocks.text.settings.text.label"
         },
         {
+          "type": "checkbox",
+          "id": "show-pre-text",
+          "label": "Show pre text",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "mid_text",
+          "label": "Mid Text"
+        },
+        {
+          "type": "text",
+          "id": "post_text",
+          "label": "Post Text"
+        },
+        {
           "type": "select",
           "id": "text_style",
           "options": [
@@ -768,7 +967,19 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "stars_image",
+          "label": "Image below title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "rating_text_coffee_lovers",
+          "label": "Text below title"
+        }
+      ]
     },
     {
       "type": "price",
@@ -834,6 +1045,7 @@
           "min": 0,
           "max": 100,
           "step": 1,
+          "info": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.info",
           "default": 10
         },
         {
@@ -847,7 +1059,15 @@
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show-quantity-cart-label",
+          "label": "Show quantity cart label",
+          "default": true
+        }
+      ]
     },
     {
       "type": "variant_picker",
@@ -911,6 +1131,44 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "add-checkbox-below-button",
+          "default": false,
+          "label": "Add checkbox below button"
+        },
+        {
+          "type": "text",
+          "id": "checkbox-1-label",
+          "label": "Add checkbox 1 label"
+        },
+        {
+          "type": "image_picker",
+          "id": "checkbox-1-image",
+          "label": "Add checkbox 1 image"
+        },
+        {
+          "type": "image_picker",
+          "id": "checkbox-2-image",
+          "label": "Add checkbox 2 image"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "checkbox-3-image",
+          "label": "Add checkbox 3 image"
+        },
+
+        {
+          "type": "text",
+          "id": "checkbox-2-label",
+          "label": "Add checkbox 2 label"
+        },
+        {
+          "type": "text",
+          "id": "checkbox-3-label",
+          "label": "Add checkbox 3 label"
         }
       ]
     },
@@ -929,6 +1187,14 @@
           "id": "share_label",
           "label": "t:sections.main-product.blocks.share.settings.text.label",
           "default": "t:sections.main-product.blocks.share.settings.text.default"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-product.blocks.share.settings.title_info.content"
         }
       ]
     },
@@ -952,6 +1218,7 @@
           "type": "text",
           "id": "heading",
           "default": "t:sections.main-product.blocks.collapsible_tab.settings.heading.default",
+          "info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
         },
         {
@@ -1472,8 +1739,8 @@
         },
         {
           "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_1.label",
-          "info": "t:sections.main-product.blocks.icon_with_text.settings.pairing_1.info"
+          "content": "t:sections.main-product.blocks.icon_with_text.settings.content.label",
+          "info": "t:sections.main-product.blocks.icon_with_text.settings.content.info"
         },
         {
           "type": "select",
@@ -1672,10 +1939,6 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         },
         {
-          "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
-        {
           "type": "select",
           "id": "icon_2",
           "options": [
@@ -1871,10 +2134,6 @@
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_2.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         },
-        {
-          "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
         {
           "type": "select",
           "id": "icon_3",
@@ -2072,6 +2331,39 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
+    },
+    {
+      "type": "box",
+      "name": "About box",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "box-heading",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "box-text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_heading",
+          "label": "Accordion Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "accordion_text",
+          "label": "Accordion Text"
+        }
+      ]
     }
   ],
   "settings": [
@@ -2159,26 +2451,6 @@
     },
     {
       "type": "select",
-      "id": "mobile_thumbnails",
-      "options": [
-        {
-          "value": "columns",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"
-        },
-        {
-          "value": "show",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"
-        },
-        {
-          "value": "hide",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__3.label"
-        }
-      ],
-      "default": "hide",
-      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
-    {
-      "type": "select",
       "id": "media_position",
       "options": [
         {
@@ -2212,6 +2484,26 @@
       ],
       "default": "lightbox",
       "label": "t:sections.main-product.settings.image_zoom.label"
+    },
+    {
+      "type": "select",
+      "id": "mobile_thumbnails",
+      "options": [
+        {
+          "value": "columns",
+          "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"
+        },
+        {
+          "value": "show",
+          "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"
+        },
+        {
+          "value": "hide",
+          "label": "t:sections.main-product.settings.mobile_thumbnails.options__3.label"
+        }
+      ],
+      "default": "hide",
+      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
     },
     {
       "type": "checkbox",
@@ -2248,6 +2540,90 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "color",
+      "id": "post-background-color",
+      "label": "Logo Post Background color"
+    },
+    {
+      "type": "color",
+      "id": "mid-background-color",
+      "label": "Logo Mid Background  color"
+    },
+    {
+      "type": "color",
+      "id": "mid-text-color",
+      "label": "Logo Mid text color"
+    },
+    {
+      "type": "color",
+      "id": "post-text-color",
+      "label": "Logo Post text color"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-custom-styling",
+      "label": "Include custom styling",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "main-product-information-color",
+      "label": "Main product information color"
+    },
+    {
+      "type": "color",
+      "id": "price-sale-text-color",
+      "label": "Sale price text color"
+    },
+    {
+      "type": "color",
+      "id": "price-regular-text-color",
+      "label": "Regular price text color"
+    },
+    {
+      "type": "color",
+      "id": "featured-product-submit-button-background-color",
+      "label": "Submit button backround color"
+    },
+    {
+      "type": "color",
+      "id": "featured-product-submit-button-text-color",
+      "label": "Submit button text color"
+    },
+    {
+      "type": "checkbox",
+      "id": "quantity-button-custom-style",
+      "label": "Add quantity and button custom style"
+    },
+    {
+      "type": "color",
+      "id": "about-box-background-color",
+      "label": "About box background color"
+    },
+    {
+      "type": "color",
+      "id": "quanity-buttons-color",
+      "label": "Quanity buttons color Prodcut page"
+    },
+    {
+      "type": "color",
+      "id": "checkbox-label-color",
+      "label": "Checkbox label color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-product.presets.name",
+      "blocks": [
+        {
+          "type": "box"
+        },
+        {
+          "type": "accordion"
+        }
+      ]
     }
   ]
 }
