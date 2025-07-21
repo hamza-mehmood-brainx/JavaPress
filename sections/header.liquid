@@ -91,102 +91,28 @@
 -%}
 
 {%- style -%}
-     .header {
-       padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
-     }
+   .header {
+     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+   }
 
-     .header .header__icons .header-button{
-     background-color: var( --homepage-red)  !important;
-     /* background-color: {{ section.blocks.button.settings.button_color }} */
-     color: #ffffff !important;
-     border: none;
-     cursor: pointer;
-    font-family: "Raleway-Bold";
-     font-size: 16px;
-     min-height: 50px;
-     border-radius: 0.5rem;
-     text-decoration: none;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     text-align: center;
-     min-width: 213px;
-     }
-  .header__submenu .header__menu-item{
-    padding: 1.5rem 2rem;
+
+   .header .header__icons .header-button::after{
+    content: {{ button_text_desk | json }};
+   }
+
+
+  @media screen and (max-width: 767px) {
+
+    .header .header__icons .header-button::after{
+    content: {{ button_text_mob| json }};
+   }
   }
-
-     .header-nav-list-items:hover{
-      color: var(--white) !important;
-      background-color: var(--main-color);
-     }
-
-     .header__submenu.list-menu{
-      padding: 0;
-     }
-     .header .header__icons .header-button::after{
-      content: {{ button_text_desk | json }};
-     }
-     .header .header__icons {
-      min-width: 270px;
-      justify-content: space-between;
-     }
-
-     .header .header__inline-menu{
-      text-align: right;
-     }
-      .header .header__inline-menu .list-menu--inline .list-menu__item{
-        font-size: 16px;
-        font-family: "Raleway-Medium"
-      }
-
-
-      .header .header__heading .header__heading-link .h2,
-      .header__heading-link .h2{
-        font-family: "Comforter_Bold";
-        font-size: 32px;
-        color: var(--black);
-
-      }
-
-
-    @media screen and (max-width:1200px){
-      .header .header__inline-menu .list-menu--inline .list-menu__item{
-        font-size: 13px
-      }
-       .header .header__icons .header-button{
-        min-width:200px
-       }
-
-        .header .header__icons{
-          min-width: 260px
-        }
-    }
-
-    @media screen and (max-width: 767px) {
-      .header{
-        padding: 5px 1rem 5px 1rem
-      }
-       .header .header__icons .header-button{
-        min-width: 68px;
-        font-size: 12px;
-        padding: 5px 5px;
-        min-height: 30px
-
-       }
-      .header .header__icons{
-        min-width: 130px
-      }
-      .header .header__heading .header__heading-link .h2{
-        font-size:24px
-      }
-      .header .header__icons .header-button::after{
-      content: {{ button_text_mob| json }};
-     }
-    }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<!-- Access custom stylesheet -->
+
+<link rel="stylesheet" href="{{ 'header-custom.css' | asset_url }}">
 
 {%- liquid
   for block in section.blocks
