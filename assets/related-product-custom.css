@@ -13,6 +13,7 @@
 .recommendation-product-grid-main {
   justify-content: center;
   gap: 30px;
+  max-width: 1200px;
 }
 
 .card-image-div {
@@ -40,6 +41,7 @@
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  margin-top: 15px;
 }
 .star-rating-text-image .show-text-below-product-title {
   margin: 0;
@@ -59,6 +61,13 @@
 .add-to-cart-button::after {
   box-shadow: none !important;
 }
+.recommendation-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 1024px) {
   .product-card-information .product-card-title-heading {
     font-size: 16px;
@@ -88,5 +97,8 @@
   }
   .add-to-cart-button {
     font-size: 16px;
+  }
+  .star-rating-text-image {
+    margin-top: 0px;
   }
 }
