@@ -230,7 +230,6 @@
         </a>
       </h1>
     {%- endif -%}
-
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       {% for block in section.blocks %}
         <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
@@ -423,7 +422,7 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
+  "max_blocks": 1,
   "settings": [
     {
       "type": "image_picker",
@@ -608,22 +607,6 @@
     }
   ],
   "blocks": [
-    {
-      "type": "image_picker",
-      "name": "Icon",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "alt_text",
-          "label": "Alt Text"
-        }
-      ]
-    },
     {
       "type": "button",
       "name": "Button",

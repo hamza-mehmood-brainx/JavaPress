@@ -25,7 +25,18 @@
   background-color: var(--main-color);
   text-decoration: none;
 }
+details[open] > .header__submenu .header__menu-item {
+  border-bottom: 1px solid var(--border);
+}
 
+.header__submenu .header-nav-list-items:first-child .header__menu-item:hover {
+  border-radius: 6px 6px 0 0;
+}
+
+.header__submenu .header-nav-list-items:last-child .header__menu-item:hover {
+  border-radius: 0 0 6px 6px;
+  border-bottom: none;
+}
 .header__submenu.list-menu {
   padding: 0;
 }
@@ -55,6 +66,10 @@ details[open] > .header__menu-item {
   color: var(--black);
 }
 
+details[open] > .header__submenu {
+  border: none;
+}
+
 details[open] > summary .header-nav-span-items {
   position: relative;
   color: var(--homepage-red);
@@ -71,6 +86,18 @@ details[open] > summary .header-nav-span-items:after {
   background-color: var(--homepage-red);
   transform: translate(-50%);
   border-radius: 50%;
+}
+
+.cart-count-bubble {
+  background-color: var(--homepage-red);
+}
+
+.menu-drawer__navigation .menu-drawer__menu .menu-drawer__menu-item {
+  font-family: "Raleway-Normal";
+}
+
+.menu-drawer__account {
+  font-family: "Raleway-Normal";
 }
 
 @media screen and (max-width: 1200px) {

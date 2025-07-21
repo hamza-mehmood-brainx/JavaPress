@@ -12,8 +12,8 @@
   text-transform: uppercase;
 }
 
-.email-field .newsletter-button-email .svg-wrapper::before {
-  /* content: "Now"; */
+.newsletter-button-mobile {
+  display: none;
 }
 .newslteter-heading {
   width: 680px;
@@ -115,6 +115,10 @@
   .newsletter .newsletter-wrapper-main .newletter-form-main .newsletter-form {
     max-width: 100% !important;
     width: 100%;
+  }
+
+  .newsletter-button-mobile {
+    display: block;
   }
   .newslteter-heading {
     width: 260px;

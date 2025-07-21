@@ -11,7 +11,7 @@
   max-width: 20% !important;
 }
 .recommendation-product-grid-main {
-  justify-content: center;
+  justify-content: space-between;
   gap: 30px;
   max-width: 1200px;
 }
@@ -24,7 +24,7 @@
   max-height: 280px;
 }
 .product-card-information .product-card-title-heading {
-  font-size: 20px;
+  font-size: 19px;
   font-family: "Raleway-Bold";
   height: 60px;
 }
@@ -41,7 +41,6 @@
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  margin-top: 15px;
 }
 .star-rating-text-image .show-text-below-product-title {
   margin: 0;
@@ -57,9 +56,10 @@
   font-family: "Raleway-Bold";
   font-size: 18px;
   border-radius: 5px;
+  text-transform: uppercase;
 }
-.add-to-cart-button::after {
-  box-shadow: none !important;
+.card-information .form .add-to-cart-button::after {
+  box-shadow: none;
 }
 .recommendation-main {
   display: flex;

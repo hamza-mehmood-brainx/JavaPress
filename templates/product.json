@@ -131,6 +131,12 @@
         "checkbox-label-color": "#075d57"
       }
     },
+    "175308241040c7013a": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
     "product_custom_information_NyCHRb": {
       "type": "product-custom-information",
       "blocks": {
@@ -187,6 +193,21 @@
         "informtaion-block-text-color": "#eaeaea"
       }
     },
+    "1753082393e5d39c7a": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_a3gRKy": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_a3gRKy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -209,7 +230,7 @@
         "product-information-text-color": "#424242",
         "sale-price-cut-color": "#929292",
         "review-text": "( 1171 Reviews )",
-        "review-image": "shopify://shop_images/5-star-rating.svg",
+        "review-image": "shopify://shop_images/5-star-rating_1.svg",
         "add-to-cart-button-background-color": "#ef4444",
         "add-to-cart-button-text-color": "#ffffff"
       }
@@ -217,7 +238,9 @@
   },
   "order": [
     "main",
+    "175308241040c7013a",
     "product_custom_information_NyCHRb",
+    "1753082393e5d39c7a",
     "related-products"
   ]
 }

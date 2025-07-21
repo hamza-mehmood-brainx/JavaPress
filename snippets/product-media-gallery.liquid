@@ -129,7 +129,7 @@
     </ul>
 
     <div class="viewer-slider-buttons slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
-      {% if product.media.size > 2 %}
+      {% if product.media.size > 1 %}
         <button
           type="button"
           class="viewer-slider-button slider-button slider-button--prev"
@@ -147,7 +147,7 @@
         <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
         <span class="slider-counter--total">{{ media_count }}</span>
       </div>
-      {% if product.media.size > 2 %}
+      {% if product.media.size > 1 %}
         <button
           type="button"
           class="viewer-slider-button slider-button slider-button--next"

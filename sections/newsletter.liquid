@@ -160,6 +160,26 @@
                       </span>
                     {% endif %}
                   </button>
+
+                  <div class="newsletter-button-mobile">
+                    <button
+                      type="submit"
+                      class="newsletter-form__button newsletter-button-email field__button"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'newsletter.button_label' | t }}"
+                    >
+                      {% if section.settings['add-button-text'] %}
+                        {{ section.settings['newsletter-button-text-mobile'] }}
+                      {% endif %}
+
+                      {% if section.settings['add-button-arrow-icon'] %}
+                        <span class="svg-wrapper">
+                          {{- 'icon-arrow.svg' | inline_asset_content -}}
+                        </span>
+                      {% endif %}
+                    </button>
+                  </div>
                 </div>
                 {%- if form.errors -%}
                   <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
@@ -267,6 +287,12 @@
       "id": "newsletter-button-text",
       "label": "Button Text",
       "default": "Subscribe Now"
+    },
+    {
+      "type": "text",
+      "id": "newsletter-button-text-mobile",
+      "label": "Button Text (Mobile)",
+      "default": "Subscribe"
     },
     {
       "type": "checkbox",

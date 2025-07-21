@@ -148,13 +148,13 @@
                       {{ customer | avatar }}
                     {%- else -%}
                       <span class="svg-wrapper">
-                        {{- 'icon-account.svg' | inline_asset_content -}}
+                        {{- 'icon-account-custom.svg' | inline_asset_content -}}
                       </span>
                     {%- endif -%}
                   </account-icon>
                 {%- else -%}
                   <span class="svg-wrapper">
-                    {{- 'icon-account.svg' | inline_asset_content -}}
+                    {{- 'icon-account-custom.svg' | inline_asset_content -}}
                   </span>
                 {%- endif -%}
                 {%- liquid
@@ -226,11 +226,12 @@
                   </a>
                 </li>
               {%- endif -%}
+
               {%- if settings.social_instagram_link != blank -%}
                 <li class="list-social__item">
                   <a href="{{ settings.social_instagram_link }}" class="list-social__link link">
                     <span class="svg-wrapper">
-                      {{- 'icon-instagram.svg' | inline_asset_content -}}
+                      {{- 'instagram.svg' | inline_asset_content -}}
                     </span>
                     <span class="visually-hidden">{{ 'general.social.links.instagram' | t }}</span>
                   </a>

@@ -94,6 +94,7 @@
   border-radius: 5px;
   font-size: 18px;
   font-family: "Raleway-Bold";
+  text-transform: uppercase;
 }
 .featured-product-buttons .featured-product-submit-button::after {
   box-shadow: none !important;

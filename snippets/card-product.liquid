@@ -162,19 +162,12 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
-
-          {%- if show_text_below_title != blank and show_image_below_title != blank -%}
-            <div class="star-rating-text-image">
-              <img
-                class="rating-image"
-                src="{{ show_image_below_title | image_url }}"
-                alt="img_text"
-                width="44"
-                height="14"
-              >
-              <p class="show-text-below-product-title">{{ show_text_below_title }}</p>
+          <div class="star-rating-text-image">
+            <div class="rating-image">
+              {{- '5-star-rating_1.svg' | inline_asset_content -}}
             </div>
-          {% endif %}
+            <p class="show-text-below-product-title">{{ show_text_below_title }}</p>
+          </div>
 
           <div class="card-information">
             {%- if show_vendor -%}
@@ -183,7 +176,6 @@
             {%- endif -%}
 
             <span class="caption-large light">{{ block.settings.description | escape }}</span>
-
             {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
               {% liquid
                 assign rating_decimal = 0

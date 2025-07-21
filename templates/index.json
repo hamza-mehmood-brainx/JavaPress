@@ -12,6 +12,13 @@
     "image_banner_KX9HyU": {
       "type": "image-banner",
       "blocks": {
+        "heading_jdtBaM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Your <strong>Perfect</strong> Coffee Routine",
+            "heading_size": "h1"
+          }
+        },
         "text_DREAGN": {
           "type": "text",
           "settings": {
@@ -40,6 +47,7 @@
         }
       },
       "block_order": [
+        "heading_jdtBaM",
         "text_DREAGN",
         "buttons_6LVh6j"
       ],

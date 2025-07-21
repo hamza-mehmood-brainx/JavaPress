@@ -25,15 +25,14 @@
   {
     color: {{ section.settings.star_text-color }};
   }
-  #shopify-section-{{ section.id }} .custom-perfect-text-color{
-    color: {{ section.settings.Perfect-text-color }}
-  }
-  #shopify-section-{{ section.id }} .custom-your-text-color{
+   #shopify-section-{{ section.id }} .banner-heading-custom{
     color: {{ section.settings.your-text-color }}
   }
-  #shopify-section-{{ section.id }} .custom-routine-text-color{
-    color: {{ section.settings.routine-text-color }}
+  #shopify-section-{{ section.id }} .banner-heading-custom strong{
+    color: {{ section.settings.Perfect-text-color }}
   }
+ 
+ 
 </style>
 
 
@@ -161,7 +160,7 @@
         {%- case block.type -%}
           {%- when 'heading' -%}
             <h2
-              class="banner__heading inline-richtext {{ block.settings.heading_size }}"
+              class="banner__heading banner-heading-custom inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
@@ -169,7 +168,7 @@
 
           {%- when 'text' -%}
 
-            <div class="banner-heading">
+            {% comment %} <div class="banner-heading">
             <h2 class="perfect-routine-head"> 
               <span class="your-text {% if section.settings.your-text-color %} custom-your-text-color {% endif %}">{{ block.settings.your_text }}</span>
               <span class="perfect-text {% if section.settings.Perfect-text-color %} custom-perfect-text-color {% endif %}">{{ block.settings.perfect_text }}</span> 
@@ -177,7 +176,7 @@
             <h2 class="perfect-routine-head"> 
               <span class="routine-text {% if section.settings.routine-text-color %} custom-routine-text-color {% endif %}">{{ block.settings.routine_text }}</span>
             </h2>
-          </div>
+          </div> {% endcomment %}
 
             {%- if block.settings.enable_description -%}
               <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
@@ -264,17 +263,12 @@
     {
       "type": "color",
       "id": "your-text-color",
-      "label": "Head part 1 text color"
+      "label": "Heading Color"
     },
     {
       "type": "color",
       "id": "Perfect-text-color",
-      "label": "Head part 2 text color"
-    },
-    {
-      "type": "color",
-      "id": "routine-text-color",
-      "label": "Head part 3 text color"
+      "label": "Bold Text Color"
     },
     {
       "type": "color",
