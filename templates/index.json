@@ -9,244 +9,147 @@
  */
 {
   "sections": {
-    "image_banner_KX9HyU": {
+    "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "heading_jdtBaM": {
+        "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Your <strong>Perfect</strong> Coffee Routine",
-            "heading_size": "h1"
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
           }
         },
-        "text_DREAGN": {
-          "type": "text",
-          "settings": {
-            "text": "Discover your tailored at home coffee products & routine as we are your <strong>100% FREE Coffee Concierge!</strong>",
-            "enable_description": true,
-            "coffee_free_concierge": "100% FREE Coffee Concierge!",
-            "discover_text": "Discover your tailored at home coffee products & routine as we are your",
-            "text_style": "body"
-          }
-        },
-        "buttons_6LVh6j": {
+        "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "BROWSW ALL PRODUCTS  →",
-            "button_link_1": "shopify://collections/coffee",
-            "button_style_secondary_1": false,
-            "button_label_2": "TAKE YOUR FREE SURVEY NOW  →",
-            "button_link_2": "shopify://collections/coffee",
-            "button_style_secondary_2": false,
-            "stars_image": "shopify://shop_images/5-star-rating.svg",
-            "rating_text_coffee_lovers": "4.9/5.00 (10,000+ people living healthy lifestyle)"
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading_jdtBaM",
-        "text_DREAGN",
-        "buttons_6LVh6j"
+        "heading",
+        "button"
       ],
-      "custom_css": [],
       "settings": {
-        "image": "shopify://shop_images/Rectangle_9.png",
-        "image_2": "shopify://shop_images/Group_164633_1.png",
-        "banner-img-bg-color": "#49918c",
-        "your-text-color": "#ffffff",
-        "Perfect-text-color": "#deb126",
-        "star_text-color": "#ffffff",
-        "browse-btn-bg-color": "#ef4444",
-        "survey-btn-bg-color": "#1b4a46",
-        "browse-btn-text-color": "#ffffff",
-        "survey-btn-text-color": "#ffffff",
-        "tailored-text-color": "#ffffff",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
-        "show_text_box": true,
-        "include-custom-style": true,
-        "desktop_content_alignment": "left",
-        "color_scheme": "",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
         "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
         "show_text_below": false
       }
     },
-    "best_sellers_custom_bXtPLL": {
-      "type": "best-sellers-custom",
-      "blocks": {
-        "collection_yxJPqc": {
-          "type": "collection",
-          "settings": {
-            "collection": "best-sellers"
-          }
-        },
-        "collection_FLcGmW": {
-          "type": "collection",
-          "settings": {
-            "collection": "daily-essentials"
-          }
-        },
-        "collection_Jft7VH": {
-          "type": "collection",
-          "settings": {
-            "collection": "skin-care"
-          }
-        },
-        "collection_BtE477": {
-          "type": "collection",
-          "settings": {
-            "collection": "starter-kits"
-          }
-        }
-      },
-      "block_order": [
-        "collection_yxJPqc",
-        "collection_FLcGmW",
-        "collection_Jft7VH",
-        "collection_BtE477"
-      ],
+    "featured_collection": {
+      "type": "featured-collection",
       "settings": {
-        "title": "Try Our Best Sellers",
-        "heading_size": "h1",
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
         "enable_desktop_slider": false,
-        "color_scheme": "",
-        "tabs-color": "#2d2d2d",
-        "image_ratio": "square",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "show-title-heading": true,
-        "include-custom-style": true,
-        "show-collection-tabs": true,
-        "show-collection-product-card": true,
+        "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 20,
-        "padding_bottom": 36,
-        "review-text": "( 1171 Reviews )",
-        "add-to-cart-button": true,
-        "add-to-cart-button-text-color": "#fdfdfd",
-        "add-to-cart-button-background-color": "#ef4444",
-        "show-sale-tag": false,
-        "active-tab-text-decoration": "#af272f",
-        "multiple-collections-background-color": "#f2f2f2"
+        "padding_top": 44,
+        "padding_bottom": 36
       }
     },
-    "featured_product_YrQjbj": {
+    "featured_product_CHWhk3": {
       "type": "featured-product",
       "blocks": {
-        "text_gHKxnG": {
+        "text_cgtjJE": {
           "type": "text",
           "settings": {
             "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase",
-            "mid_text": "Best Saler",
-            "post_text": "Staff Pick",
-            "show-pre-text": false
+            "text_style": "uppercase"
           }
         },
-        "title_z87Awt": {
+        "title_G8endE": {
           "type": "title",
           "settings": {
-            "heading_size": "h2",
-            "rating_text_coffee_lovers": "4.9/5.00  ( 117 Reviews )"
+            "heading_size": "h1"
           }
         },
-        "price_nGDnkR": {
+        "price_gHHFzb": {
           "type": "price",
           "settings": {}
         },
-        "product_description_bJDQKp": {
-          "type": "product_description",
-          "settings": {
-            "text_style": "body"
-          }
-        },
-        "variant_picker_xzmG4h": {
+        "variant_picker_dxQ4KV": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "dropdown",
+            "picker_type": "button",
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector_HnJGNn": {
+        "quantity_selector_ipkHLn": {
           "type": "quantity_selector",
-          "settings": {
-            "show-quantity-cart-label": true
-          }
+          "settings": {}
         },
-        "buy_buttons_XcBwwf": {
+        "buy_buttons_zTdV9L": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": false,
-            "checkbox-1-label": "Secure Checkout",
-            "checkbox-2-label": "Secure Shipping",
-            "checkbox-3-label": "Satisfaction Guarantee",
-            "add-checkbox-below-button": true,
+            "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
         },
-        "share_46bRUH": {
+        "share_JynL4q": {
           "type": "share",
-          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
         }
       },
       "block_order": [
-        "text_gHKxnG",
-        "title_z87Awt",
-        "price_nGDnkR",
-        "product_description_bJDQKp",
-        "variant_picker_xzmG4h",
-        "quantity_selector_HnJGNn",
-        "buy_buttons_XcBwwf",
-        "share_46bRUH"
+        "text_cgtjJE",
+        "title_G8endE",
+        "price_gHHFzb",
+        "variant_picker_dxQ4KV",
+        "quantity_selector_ipkHLn",
+        "buy_buttons_zTdV9L",
+        "share_JynL4q"
       ],
+      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "product": "roasted-coffee-grinder-chocolate-flavour",
+        "product": "",
         "color_scheme": "",
-        "checkbox-label-color": "#075d57",
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,
-        "enable-custom-page-width": false,
         "media_fit": "contain",
         "media_position": "left",
-        "image_zoom": "none",
+        "image_zoom": "lightbox",
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 36,
-        "post-text-color": "#ffffff",
-        "quanity-buttons-color": "#f2f2f2",
-        "featured-product-description": "",
-        "featured-product-submit-button-background-color": "#ef4444",
-        "show-sale-tag": false,
-        "quantity-button-custom-style": true,
-        "show-details": false,
-        "featured-product-submit-button-text-color": "#ffffff",
-        "price-sale-text-color": "#ef4444",
-        "price-regular-text-color": "#8e8484",
-        "mid-text-color": "#242833",
-        "post-background-color": "#424242",
-        "mid-background-color": "#ece03a",
-        "show-custom-styling": true,
-        "product-title-color": "#121212"
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "image_banner_KX9HyU",
-    "best_sellers_custom_bXtPLL",
-    "featured_product_YrQjbj"
+    "image_banner",
+    "featured_collection",
+    "featured_product_CHWhk3"
   ]
 }

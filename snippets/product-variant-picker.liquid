@@ -11,7 +11,6 @@
 {%- unless product.has_only_default_variant -%}
   <variant-selects
     id="variant-selects-{{ section.id }}"
-    class="variants-main"
     data-section="{{ section.id }}"
     {{ block.shopify_attributes }}
   >
@@ -54,11 +53,11 @@
           %}
         </fieldset>
       {%- else -%}
-        <div class="custom-variants product-form__input product-form__input--dropdown">
-          <label class="form__label variant-label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+        <div class="product-form__input product-form__input--dropdown">
+          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
             {{ option.name }}
           </label>
-          <div class="select variant-selector">
+          <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
               <span
                 data-selected-value
@@ -69,7 +68,7 @@
             {%- endif -%}
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select variant-select-options"
+              class="select__select"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
@@ -81,7 +80,7 @@
               %}
             </select>
             <span class="svg-wrapper">
-              {% render 'icon-caret-custom' %}
+              {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
           </div>
         </div>

@@ -5,10 +5,10 @@
   {% render 'header-dropdown-menu' %}
 {% endcomment %}
 
-<nav class="header__inline-menu main-nav-header">
-  <ul class="list-menu list-menu--inline header-main-list" role="list">
+<nav class="header__inline-menu">
+  <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
-      <li class="header-nav-lists">
+      <li>
         {%- if link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}">
@@ -17,7 +17,6 @@
                 class="header__menu-item list-menu__item link focus-inset"
               >
                 <span
-                  class="header-nav-span-items"
                   {%- if link.child_active %}
                     class="header__active-menu-item"
                   {% endif %}
@@ -33,7 +32,7 @@
                 tabindex="-1"
               >
                 {%- for childlink in link.links -%}
-                  <li class="header-nav-list-items">
+                  <li>
                     {%- if childlink.links == blank -%}
                       <a
                         id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
@@ -51,7 +50,7 @@
                           id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                           class="header__menu-item link link--text list-menu__item focus-inset caption-large"
                         >
-                          <span class="header-nav-span-items">{{ childlink.title | escape }}</span>
+                          <span>{{ childlink.title | escape }}</span>
                           {{- 'icon-caret.svg' | inline_asset_content -}}
                         </summary>
                         <ul
@@ -59,7 +58,7 @@
                           class="header__submenu list-menu motion-reduce"
                         >
                           {%- for grandchildlink in childlink.links -%}
-                            <li class="header-nav-list-items">
+                            <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
@@ -84,13 +83,12 @@
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
-            class="list-nav-link header__menu-item list-menu__item link link--text focus-inset"
+            class="header__menu-item list-menu__item link link--text focus-inset"
             {% if link.current %}
               aria-current="page"
             {% endif %}
           >
             <span
-              class="header-nav-span-items"
               {%- if link.current %}
                 class="header__active-menu-item"
               {% endif %}

@@ -1,95 +1,6 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
-<!-- Custom styling for accessing dynamic settings -->
-<style>
-       #shopify-section-{{ section.id }} .announcement-bar__link{
-         color: {{ section.settings.link_text_color }} !important;
-       }
-       #shopify-section-{{ section.id }} .custom-utility-bar{
-          background-color: {{ section.settings.announcement-bg-color }};
-       }
-
-     .utility-bar__grid {
-       min-height: 60px;
-       height: 100%;
-     }
-     .announcement-bar {
-       min-height: 60px;
-       height: 100%;
-       width: 99%;
-     }
-
-     .announcement-bar-main .announcement-message {
-       display: flex;
-       flex-direction: row;
-       justify-content: center;
-       align-items: center;
-    font-family:'Raleway-Normal';
-       padding-bottom: 0;
-       padding-top: 0;
-       max-width: 100%;
-       width: 100%;
-       text-align: unset;
-       gap: 5px;
-     }
-     .announcement-message .announcement-message-span {
-       width: auto;
-       font-size: 14px;
-       font-family: 'Raleway-Medium';
-       letter-spacing: 0px;
-       display: block;
-     }
-
-     .utility-bar__grid.page-width {
-       padding-left: 12px;
-       padding-right: 12px;
-     }
-
-     /* Make <strong> and <b> behave like the old highlight */
-  .announcement-message-span strong,
-  .announcement-message-span b {
-    color: {{ section.settings.link_text_color }} !important;
-    font-family: "Raleway-Bold";
-    font-size: 14px;
-    text-decoration: underline;
-  }
-
-     @media screen and (max-width: 1024px) {
-       .announcement-message .announcement-message-span {
-         width: auto;
-         font-size: 14px;
-         display: flex;
-         align-items: center;
-         display: block;
-       }
-       .announcement-message .announcement-message-span strong {
-         font-size: 14px;
-         width: auto;
-       }
-     }
-     @media screen and (max-width: 767px) {
-       .announcement-message .announcement-message-span {
-         width: auto;
-         font-size: 11px;
-         display: block;
-       }
-       .announcement-message .announcement-message-span strong {
-         font-size: 10px;
-         width: auto;
-       }
-       .utility-bar__grid,
-       .announcement-bar {
-         min-height: 24px;
-         height: 100%;
-       }
-       .announcement-message {
-         min-height: 24px;
-         height: 100%;
-       }
-     }
-</style>
-
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -108,7 +19,7 @@
 {% endif %}
 
 <div
-  class="custom-utility-bar utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
+  class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
 >
   <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
     {%- if section.settings.show_social and social_icons -%}
@@ -122,12 +33,21 @@
         {{ section.blocks.first.shopify_attributes }}
       >
         {%- if section.blocks.first.settings.text != blank -%}
+          {%- if section.blocks.first.settings.link != blank -%}
+            <a
+              href="{{ section.blocks.first.settings.link }}"
+              class="announcement-bar__link link link--text focus-inset animate-arrow"
+            >
+          {%- endif -%}
           <p class="announcement-bar__message h5">
-            <span class="announcement-message-span">{{ section.blocks.first.settings.text | escape }} </span>
-            <a href="{{ section.blocks.first.settings.link }}" class="announcement-bar__link">
-              {{- section.blocks.first.settings.highlight -}}
-            </a>
+            <span>{{ section.blocks.first.settings.text | escape }}</span>
+            {%- if section.blocks.first.settings.link != blank -%}
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+            {%- endif -%}
           </p>
+          {%- if section.blocks.first.settings.link != blank -%}
+            </a>
+          {%- endif -%}
         {%- endif -%}
       </div>
     {%- elsif section.blocks.size > 1 -%}
@@ -146,7 +66,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'uim_previous.svg' | inline_asset_content -}}
+              {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
           </button>
           <div
@@ -168,16 +88,26 @@
                 tabindex="-1"
               >
                 <div
-                  class="announcement-bar__announcement announcement-bar-main"
+                  class="announcement-bar__announcement"
                   role="region"
                   aria-label="{{ 'sections.header.announcement' | t }}"
                 >
-                  {%- if block.settings.content != blank -%}
-                    <p class="announcement-bar__message h5 announcement-message">
-                      <span class="announcement-message-span">
-                        {{ block.settings.content }}
-                      </span>
+                  {%- if block.settings.text != blank -%}
+                    {%- if block.settings.link != blank -%}
+                      <a
+                        href="{{ block.settings.link }}"
+                        class="announcement-bar__link link link--text focus-inset animate-arrow"
+                      >
+                    {%- endif -%}
+                    <p class="announcement-bar__message h5">
+                      <span>{{ block.settings.text | escape }}</span>
+                      {%- if block.settings.link != blank -%}
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      {%- endif -%}
                     </p>
+                    {%- if block.settings.link != blank -%}
+                      </a>
+                    {%- endif -%}
                   {%- endif -%}
                 </div>
               </div>
@@ -191,7 +121,7 @@
             aria-controls="Slider-{{ section.id }}"
           >
             <span class="svg-wrapper">
-              {{- 'uim_next.svg' | inline_asset_content -}}
+              {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
           </button>
         </div>
@@ -256,28 +186,13 @@
       "unit": "s",
       "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
       "default": 5
-    },
+    },    
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
-    },
-    {
-      "type": "checkbox",
-      "id": "include-custom-style",
-      "label": "Apply custom styling to Announcement bar"
-    },
-    {
-      "type": "color",
-      "id": "link_text_color",
-      "label": "Announcement Link Text Color"
-    },
-    {
-      "type": "color",
-      "id": "announcement-bg-color",
-      "label": "Announcement background color"
-    },
+    },  
     {
       "type": "checkbox",
       "id": "show_line_separator",
@@ -290,8 +205,8 @@
     },
     {
       "type": "paragraph",
-      "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },
+         "content": "t:sections.announcement-bar.settings.paragraph.content"
+    },             
     {
       "type": "checkbox",
       "id": "show_social",
@@ -320,10 +235,15 @@
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
         {
-          "type": "inline_richtext",
-          "id": "content",
-          "label": "Announcement Content",
-          "default": "Get 10% off your first order!"
+          "type": "text",
+          "id": "text",
+          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
         }
       ]
     }
