@@ -129,10 +129,11 @@
   line-height: 65px;
 }
 
-.banner-heading-custom strong {
+.banner__heading strong {
   font-family: "Comforter_Bold";
   font-size: 96px;
   transform: rotate(-10deg);
+  position: absolute;
 }
 
 @media screen and (max-width: 1280px) {
@@ -285,6 +286,10 @@
   .banner:not(.banner--stacked) {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .banner__heading strong {
+    position: relative;
   }
 
   .banner--stacked {

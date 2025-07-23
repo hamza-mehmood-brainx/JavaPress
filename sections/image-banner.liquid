@@ -159,12 +159,23 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2
+            {% comment %} <h2
               class="banner__heading banner-heading-custom inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
-            >
-              {{ block.settings.heading }}
-            </h2>
+            > {% endcomment %}
+              {% comment %} {{ block.settings.heading }}  {% endcomment %}
+                {% assign parts = block.settings.heading | split: '</strong>' %}
+
+              {% assign first_part = parts[0] | append: '</strong>' %}
+              {% assign second_part = parts[1] %}
+
+              <h2 class="banner__heading banner-heading-custom inline-richtext h1">
+              {{ first_part }} <br>
+              <span>
+                {{ second_part }}
+              </span>
+              </h2>
+            {% comment %} </h2> {% endcomment %}
 
           {%- when 'text' -%}
 
