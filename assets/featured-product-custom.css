@@ -60,6 +60,11 @@
 }
 .featured-product-buttons {
   padding-top: 5px;
+  max-width: 100%;
+}
+
+.product-media-list-custom .product-media-container {
+  min-width: 95%;
 }
 .featured-product-buttons .featured-product-submit-button {
   width: 100%;

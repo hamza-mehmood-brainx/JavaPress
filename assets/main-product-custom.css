@@ -157,7 +157,7 @@
 .slider-button-prev-custom {
   display: none !important;
 }
-.thumbnail-slider .slider-button--next {
+.viewer-slider-button.slider-button.slider-button--next {
   background-image: url("https://cdn.shopify.com/s/files/1/0899/1355/7281/files/Group_36.svg?v=1727792074");
   background-size: contain;
   background-repeat: no-repeat;

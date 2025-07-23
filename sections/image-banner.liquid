@@ -168,26 +168,13 @@
 
           {%- when 'text' -%}
 
-            {% comment %} <div class="banner-heading">
-            <h2 class="perfect-routine-head"> 
-              <span class="your-text {% if section.settings.your-text-color %} custom-your-text-color {% endif %}">{{ block.settings.your_text }}</span>
-              <span class="perfect-text {% if section.settings.Perfect-text-color %} custom-perfect-text-color {% endif %}">{{ block.settings.perfect_text }}</span> 
-            </h2>
-            <h2 class="perfect-routine-head"> 
-              <span class="routine-text {% if section.settings.routine-text-color %} custom-routine-text-color {% endif %}">{{ block.settings.routine_text }}</span>
-            </h2>
-          </div> {% endcomment %}
-
             {%- if block.settings.enable_description -%}
-              <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+              <div class="banner__text rte tailored-text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
                 <p>{{ block.settings.text }}</p>
               </div>
             {% endif %}
 
-            <p class="tailored-text {% if section.settings.tailored-text-color %} custom-tailored-text-color {% endif %}"> {{ block.settings.discover_text }}
-              <span class="free-coffee-text">{{ block.settings.coffee_free_concierge }}</span>
-           </p>
-
+      
           {%- when 'buttons' -%}
             <div
               class="multiple-banner-buttons banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
@@ -226,7 +213,6 @@
                 <p class="rating-star-text {% if section.settings.star_text-color %} custom-star-text-color {% endif %}">{{ block.settings.rating_text_coffee_lovers }}</p>
               </div>
             {% endif %}
-          </div>
 
         {%- endcase -%}
       {%- endfor -%}
@@ -538,51 +524,6 @@
           "id": "enable_description",      
           "label": "Enable description",      
           "default": true    
-        },
-        {
-          "type": "inline_richtext",
-          "id": "your_text",
-          "label": "Heading part 1 text"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "perfect_text",
-          "label": "Heading part 2 text"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "routine_text",
-          "label": "Heading part 3 text"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "coffee_free_concierge",
-          "label": "Coffee free concierge"
-        },
-        {
-          "type": "inline_richtext",
-          "id": "discover_text",
-          "label": "Discover text"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.image-banner.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.image-banner.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "caption-with-letter-spacing",
-              "label": "t:sections.image-banner.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
         }
       ]
     },

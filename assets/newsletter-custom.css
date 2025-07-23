@@ -5,11 +5,12 @@
 .email-field .newsletter-button-email {
   width: 100%;
   max-width: 30%;
-  min-width: 35%;
+  min-width: 37%;
   font-size: 16px;
   font-family: "Raleway-Bold";
   border-radius: 4px;
   text-transform: uppercase;
+  padding: 6px 5px;
 }
 
 .newsletter-button-mobile {
@@ -19,6 +20,7 @@
   width: 680px;
   font-family: "Raleway-Bold";
   font-size: 32px;
+  color: var(--review-color);
 }
 .input-field-label {
   position: absolute;
@@ -44,6 +46,16 @@
   display: flex;
   justify-content: center;
 }
+
+.newsletter-subhead {
+  font-size: 16px;
+  font-family: "Raleway-Normal";
+}
+
+.newsletter-subhead strong {
+  font-family: "Raleway-Bold";
+  color: var(--review-color);
+}
 .newsletter .newsletter-wrapper-main .newletter-form-main .newsletter-form {
   max-width: 80% !important;
   width: 100%;
@@ -51,7 +63,7 @@
 .newsletter-wrapper-main .newletter-form-main .newsletter-field-wrapper {
   max-width: 100%;
   width: 100%;
-  padding: 8px;
+  padding: 6px;
   background-color: var(--gray);
   border-radius: 5px;
 }
@@ -110,6 +122,9 @@
     font-size: 18px;
     width: 260px;
   } */
+  .newsletter-button-mobile {
+    display: block;
+  }
 }
 @media screen and (max-width: 767px) {
   .newsletter .newsletter-wrapper-main .newletter-form-main .newsletter-form {
@@ -117,12 +132,9 @@
     width: 100%;
   }
 
-  .newsletter-button-mobile {
-    display: block;
-  }
   .newslteter-heading {
-    width: 260px;
-    font-size: 18px;
+    width: 315px;
+    font-size: 22px;
   }
   .newsletter .newsletter-wrapper-main {
     padding-left: 15px;

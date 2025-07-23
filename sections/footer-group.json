@@ -31,11 +31,11 @@
         "paragraph_ULKHD7": {
           "type": "paragraph",
           "settings": {
-            "text": "<p>Get “$20 discount” for your first order</p>",
+            "text": "<p>Get <strong>“$20 discount”</strong> for your first order</p>",
             "text-1": "Get",
             "text-2": "“$20 discount”",
             "text-3": "for your first order",
-            "show-default-paragraph": false,
+            "show-default-paragraph": true,
             "show-custom-paragraphs": true
           }
         },

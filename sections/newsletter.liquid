@@ -91,11 +91,13 @@
               {{ block.settings.text }}
             {% endif %}
 
-            {% if block.settings['show-custom-paragraphs'] %}
-              <span class="subhead-text-one">{{ block.settings['text-1'] }}</span>
-              <span class="subhead-text-two">{{ block.settings['text-2'] }}</span>
-              <span class="subhead-text-three">{{ block.settings['text-3'] }}</span>
-            {% endif %}
+            {% comment %}
+              {% if block.settings['show-custom-paragraphs'] %}
+                <span class="subhead-text-one">{{ block.settings['text-1'] }}</span>
+                <span class="subhead-text-two">{{ block.settings['text-2'] }}</span>
+                <span class="subhead-text-three">{{ block.settings['text-3'] }}</span>
+              {% endif %}
+            {% endcomment %}
           </div>
         {%- when 'email_form' -%}
           <div class="newletter-form-main" {{ block.shopify_attributes }}>
@@ -386,31 +388,10 @@
           "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
         },
         {
-          "type": "text",
-          "id": "text-1",
-          "label": "Text 1"
-        },
-        {
-          "type": "text",
-          "id": "text-2",
-          "label": "Text 2"
-        },
-        {
-          "type": "text",
-          "id": "text-3",
-          "label": "Text 3"
-        },
-        {
           "type": "checkbox",
           "id": "show-default-paragraph",
           "label": "Show default paragraph",
           "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "show-custom-paragraphs",
-          "label": "Show custom paragraph",
-          "default": false
         }
       ]
     },

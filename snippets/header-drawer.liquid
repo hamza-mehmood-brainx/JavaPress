@@ -166,7 +166,10 @@
                 -%}
               </a>
             {%- endif -%}
-            {%- if localization.available_countries or localization.available_languages -%}
+            {%- if section.settings.enable_country_selector
+              and localization.available_countries
+              or localization.available_languages
+            -%}
               <div class="menu-drawer__localization header-localization">
                 {%- if localization.available_countries and localization.available_countries.size > 1 -%}
                   <localization-form>
