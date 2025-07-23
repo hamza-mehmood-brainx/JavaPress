@@ -105,23 +105,12 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  /* .newsletter-email-form,
-  .newsletter-email-form .newsletter-form__field-wrapper,
-  .field .field__input {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 100%;
-  } */
   .newslteter-heading {
     font-size: 26px;
   }
 }
 
 @media screen and (max-width: 980px) {
-  /* .newslteter-heading {
-    font-size: 18px;
-    width: 260px;
-  } */
   .newsletter-button-mobile {
     display: block;
   }
