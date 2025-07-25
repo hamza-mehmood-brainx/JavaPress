@@ -186,6 +186,7 @@
                   </a>
                 </div>
 
+              {%- when 'rating_custom' -%}
                 {%- if block.settings.rating_text_coffee_lovers != blank -%}
                   <div class="rating-text-coffee">
                     <div>
@@ -196,7 +197,6 @@
                     </p>
                   </div>
                 {% endif %}
-
               {%- when 'price' -%}
                 <div
                   id="price-{{ section.id }}"
@@ -307,18 +307,24 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
-                <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                <div
+                  class="product__accordion accordion-item accordion quick-add-hidden"
+                  {{ block.shopify_attributes }}
+                >
                   <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
-                        <h2 class="h4 accordion__title inline-richtext">
+                        <h2 class="h4 accordion__title accordion-title-text inline-richtext">
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
                       {{- 'icon-caret.svg' | inline_asset_content -}}
                     </summary>
-                    <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    <div
+                      class="accordion__content accordion-content-text rte"
+                      id="ProductAccordion-{{ block.id }}-{{ section.id }}"
+                    >
                       {{ block.settings.content }}
                       {{ block.settings.page.content }}
                     </div>
@@ -609,26 +615,6 @@
                   <p class="about-text">{{ block.settings['box-text'] }}</p>
                 </div>
 
-              {% when 'accordion' %}
-                <div class="accordion-item">
-                  <!-- Accordion Heading -->
-                  <div class="accordion-name">
-                    <p class="accordion-title-text">{{ block.settings.accordion_heading }}</p>
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      aria-expanded="false"
-                      aria-controls="content--{{ block.id }}"
-                    >
-                      +
-                    </button>
-                  </div>
-                  <!-- Accordion Content -->
-                  <div class="accordion-content" id="content--{{ block.id }}" style="display: none;">
-                    <p class="accordion-content-text">{{ block.settings.accordion_text }}</p>
-                  </div>
-                </div>
-
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -764,9 +750,11 @@
                                 name="previous"
                                 aria-label="{{ 'general.slider.previous_slide' | t }}"
                               >
-                                <span class="svg-wrapper">
-                                  {{- 'icon-caret.svg' | inline_asset_content -}}
-                                </span>
+                                {% comment %}
+                                  <span class="svg-wrapper">
+                                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                                  </span>
+                                {% endcomment %}
                               </button>
                               <div class="slider-counter slider-counter--{{ block.settings.pagination_style }}{% if block.settings.pagination_style == 'counter' or block.settings.pagination_style == 'numbers' %} caption{% endif %}">
                                 {%- if block.settings.pagination_style == 'counter' -%}
@@ -798,9 +786,11 @@
                                 name="next"
                                 aria-label="{{ 'general.slider.next_slide' | t }}"
                               >
-                                <span class="svg-wrapper">
-                                  {{- 'icon-caret.svg' | inline_asset_content -}}
-                                </span>
+                                {% comment %}
+                                  <span class="svg-wrapper">
+                                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                                  </span>
+                                {% endcomment %}
                               </button>
                             </div>
                           {%- endif -%}
@@ -951,6 +941,18 @@
           "type": "inline_richtext",
           "id": "rating_text_coffee_lovers",
           "label": "Text below title"
+        }
+      ]
+    },
+    {
+      "type": "rating_custom",
+      "name": "Rating",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "rating_text_coffee_lovers",
+          "label": "Rating text"
         }
       ]
     },

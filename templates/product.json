@@ -25,7 +25,12 @@
         "title": {
           "type": "title",
           "settings": {
-            "stars_image": "shopify://shop_images/5-star-rating.png",
+            "rating_text_coffee_lovers": "4.9/5.00  ( 117 Reviews )"
+          }
+        },
+        "rating_custom_DFc4GL": {
+          "type": "rating_custom",
+          "settings": {
             "rating_text_coffee_lovers": "4.9/5.00  ( 117 Reviews )"
           }
         },
@@ -57,34 +62,25 @@
             "show_gift_card_recipient": true,
             "add-checkbox-below-button": true,
             "checkbox-1-label": "Secure Checkout",
-            "checkbox-1-image": "shopify://shop_images/lets-icons_check-fill.png",
-            "checkbox-2-image": "shopify://shop_images/lets-icons_check-fill.png",
-            "checkbox-3-image": "shopify://shop_images/lets-icons_check-fill.png",
             "checkbox-2-label": "Secure Shipping",
             "checkbox-3-label": "Satisfaction Guarantee"
           }
         },
-        "accordion_ygcq8j": {
-          "type": "accordion",
-          "settings": {
-            "accordion_heading": "About Product:",
-            "accordion_text": "The Manual Coffee Grinder by JavaPresse Coffee Company was built with a professional grade ceramic conical burr to heighten flavors of the most exquisite coffees in the world. It was born out of pure necessity, to provide an incredibly consistent grind for a variety of brews while making as little noise as possible. Combined with an impeccable stainless steel frame and convenient size, this grinder is at the pinnacle of travel gadgets. Who said you can’t have it all?"
-          }
-        },
-        "accordion_LgEaAV": {
-          "type": "accordion",
-          "settings": {
-            "accordion_heading": "Ingredients:",
-            "accordion_text": "Chocolate honey..."
-          }
-        },
         "collapsible_tab_ALhPJT": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "content": "<p>{{ block.settings.page.title }}</p>",
+            "heading": "About Product:",
+            "icon": "none",
+            "content": "<p>The Manual Coffee Grinder by JavaPresse Coffee Company was built with a professional grade ceramic conical burr to heighten flavors of the most exquisite coffees in the world. It was born out of pure necessity, to provide an incredibly consistent grind for a variety of brews while making as little noise as possible. Combined with an impeccable stainless steel frame and convenient size, this grinder is at the pinnacle of travel gadgets. Who said you can’t have it all?</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_a9TgcD": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredients:",
+            "icon": "none",
+            "content": "<p>Chocolate honey...</p>",
             "page": ""
           }
         }
@@ -92,14 +88,14 @@
       "block_order": [
         "text_rXXHbb",
         "title",
+        "rating_custom_DFc4GL",
         "price",
         "description_pWEWER",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "accordion_ygcq8j",
-        "accordion_LgEaAV",
-        "collapsible_tab_ALhPJT"
+        "collapsible_tab_ALhPJT",
+        "collapsible_tab_a9TgcD"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -131,81 +127,73 @@
         "checkbox-label-color": "#075d57"
       }
     },
-    "175308241040c7013a": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "product_custom_information_NyCHRb": {
-      "type": "product-custom-information",
+    "multicolumn_AA9yCP": {
+      "type": "multicolumn",
       "blocks": {
-        "heading_Fpntgf": {
-          "type": "heading",
+        "column_MXnYhc": {
+          "type": "column",
           "settings": {
-            "heading_text": "Why 100,000 Coffee Drinkers Have Switched To OrganicCoffee"
+            "image": "shopify://shop_images/Mask_group_4.png",
+            "title": "Top 1% of the world’s coffee",
+            "text": "<p>Specialty grade, single origin, and hand-picked at peak ripeness for the highest quality.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "information_Fna4pk": {
-          "type": "information",
+        "column_D6xffJ": {
+          "type": "column",
           "settings": {
-            "info_image": "shopify://shop_images/Mask_group.png",
-            "info_title": "Top 1% of the world’s coffee",
-            "info_description": "Specialty grade, single origin, and hand-picked at peak ripeness for the highest quality."
+            "image": "shopify://shop_images/Mask_group_1.png",
+            "title": "A new coffee each month",
+            "text": "<p>These coffees aren’t on the shelves, from Malawi to Myanmar, India to Ecuador, and more.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "information_zVL6DA": {
-          "type": "information",
+        "column_KHMn4m": {
+          "type": "column",
           "settings": {
-            "info_image": "shopify://shop_images/Mask_group_1.png",
-            "info_title": "A new coffee each month",
-            "info_description": "These coffees aren’t on the shelves, from Malawi to Myanmar, India to Ecuador, and more."
+            "image": "shopify://shop_images/Mask_group_5.png",
+            "title": "Roasted fresh to order",
+            "text": "<p>And always roasted to your preference. Maximum freshness, maximum flavor.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
-        "information_LLqtnQ": {
-          "type": "information",
+        "column_LkXkWT": {
+          "type": "column",
           "settings": {
-            "info_image": "shopify://shop_images/Mask_group_2.png",
-            "info_title": "Roasted fresh to order",
-            "info_description": "And always roasted to your preference. Maximum freshness, maximum flavor."
-          }
-        },
-        "information_XcrK3h": {
-          "type": "information",
-          "settings": {
-            "info_image": "shopify://shop_images/Mask_group_3.png",
-            "info_title": "Delivered on your schedule",
-            "info_description": "Skip or change your delivery date at any time, and set a schedule that works for you."
+            "image": "shopify://shop_images/Mask_group_6.png",
+            "title": "Delivered on your schedule",
+            "text": "<p>Skip or change your delivery date at any time, and set a schedule that works for you.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "heading_Fpntgf",
-        "information_Fna4pk",
-        "information_zVL6DA",
-        "information_LLqtnQ",
-        "information_XcrK3h"
+        "column_MXnYhc",
+        "column_D6xffJ",
+        "column_KHMn4m",
+        "column_LkXkWT"
       ],
+      "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "custom-section-background-color": "#075d57",
-        "show-custom-styling": true,
-        "custom-section-heading-color": "#ffffff",
-        "informtaion-block-text-color": "#eaeaea"
-      }
-    },
-    "1753082393e5d39c7a": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_a3gRKy": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_a3gRKy"
-      ],
-      "settings": {
-        "include_margins": true
+        "title": "Why 100,000 Coffee Drinkers Have Switched To OrganicCoffee",
+        "heading_size": "h1",
+        "background-color": "#075d57",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "related-products": {
@@ -230,7 +218,6 @@
         "product-information-text-color": "#424242",
         "sale-price-cut-color": "#929292",
         "review-text": "( 1171 Reviews )",
-        "review-image": "shopify://shop_images/5-star-rating_1.svg",
         "add-to-cart-button-background-color": "#ef4444",
         "add-to-cart-button-text-color": "#ffffff"
       }
@@ -238,9 +225,7 @@
   },
   "order": [
     "main",
-    "175308241040c7013a",
-    "product_custom_information_NyCHRb",
-    "1753082393e5d39c7a",
+    "multicolumn_AA9yCP",
     "related-products"
   ]
 }

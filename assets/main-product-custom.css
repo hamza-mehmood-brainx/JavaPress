@@ -130,9 +130,17 @@
   align-items: center;
   justify-content: space-between;
 }
-.accordion-item {
+.product__info-container .accordion-item {
   padding: 15px;
   cursor: pointer;
+  border-radius: 4px;
+  border-top: none;
+  border-bottom: none;
+  margin-top: 10px !important;
+}
+
+.accordion summary {
+  padding: 0 !important;
 }
 .accordion-name .accordion-button {
   background-color: transparent !important;
@@ -142,18 +150,20 @@
 .accordion-name .accordion-button::after {
   box-shadow: none;
 }
-.accordion-name .accordion-title-text {
+.accordion-item .accordion-title-text {
   font-size: 16px;
   font-family: "Raleway-Bold";
   margin: 0;
+  color: var(--review-color);
 }
 .accordion-name .accordion-button {
   font-size: 24px;
   font-family: "Raleway-Medium";
 }
-.accordion-content .accordion-content-text {
+.accordion-item .accordion-content-text {
   font-family: "Raleway-Medium";
   font-size: 14px;
+  padding: 10px 0px !important;
 }
 .main-product-section-main {
   margin-bottom: 30px;
@@ -168,8 +178,8 @@
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
-  width: 45px !important;
-  height: 45px !important;
+  width: 45px;
+  height: 45px;
   max-height: unset !important;
 }
 .viewer-slider-button.slider-button.slider-button--next[disabled],
@@ -183,8 +193,8 @@
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
-  width: 45px !important;
-  height: 45px !important;
+  width: 45px;
+  height: 45px;
   max-height: unset !important;
 }
 .viewer-slider-buttons {
@@ -299,6 +309,14 @@
   }
 }
 @media screen and (max-width: 767px) {
+  .main-product-heading-main .main-product-heading {
+    font-size: 22px;
+  }
+  .viewer-slider-button.slider-button.slider-button--next,
+  .viewer-slider-button.slider-button.slider-button--prev {
+    height: 30px;
+    width: 30px;
+  }
   .rating-text-coffee,
   .rating-text-coffee .rating-star-text {
     margin: 0 !important;
@@ -306,8 +324,12 @@
   .main-product-heading-main {
     margin: 2px !important;
   }
-  .accordion-content .accordion-content-text {
+  .accordion-item .accordion-content-text {
     font-size: 12px;
+  }
+
+  .accordion-item .accordion-title-text {
+    font-size: 14px;
   }
   .slider-mobile-gutter {
     overflow: hidden;

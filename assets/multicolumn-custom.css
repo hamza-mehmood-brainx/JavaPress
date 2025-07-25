@@ -1,0 +1,47 @@
+.title-wrapper-with-link .custom-head {
+  text-align: center;
+  font-size: 32px;
+  font-family: "Raleway-Bold";
+  color: var(--white);
+}
+
+.title-wrapper-with-link {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.multicolumn-card__info .information-title {
+  font-size: 16px;
+  font-family: "Raleway-Bold";
+  color: var(--white);
+}
+
+.multicolumn-card__info .information-text {
+  color: var(--white);
+  font-size: 14px;
+  font-family: "Raleway-Medium";
+  text-align: center;
+}
+
+/* .multicolumn-list .column-custom {
+  max-width: 24%;
+} */
+@media screen and (max-width: 1024px) {
+  .heading-block .custom-head {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .title-wrapper-with-link .custom-head {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .title-wrapper-with-link .custom-head {
+    font-size: 22px;
+  }
+}
