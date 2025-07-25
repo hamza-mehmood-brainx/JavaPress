@@ -328,6 +328,10 @@
     font-size: 12px;
   }
 
+  details[open] summary .accordion-icon svg {
+    transform: rotate(45deg) !important;
+  }
+
   .accordion-item .accordion-title-text {
     font-size: 14px;
   }

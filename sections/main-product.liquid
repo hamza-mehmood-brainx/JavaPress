@@ -319,7 +319,13 @@
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                      {% if block.settings.enable_custom_icon %}
+                        <span class="accordion-icon">
+                          {{- 'icon-custom-plus.svg' | inline_asset_content -}}
+                        </span>
+                      {% else %}
+                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                      {% endif %}
                     </summary>
                     <div
                       class="accordion__content accordion-content-text rte"
@@ -749,13 +755,7 @@
                                 class="slider-button slider-button--prev"
                                 name="previous"
                                 aria-label="{{ 'general.slider.previous_slide' | t }}"
-                              >
-                                {% comment %}
-                                  <span class="svg-wrapper">
-                                    {{- 'icon-caret.svg' | inline_asset_content -}}
-                                  </span>
-                                {% endcomment %}
-                              </button>
+                              ></button>
                               <div class="slider-counter slider-counter--{{ block.settings.pagination_style }}{% if block.settings.pagination_style == 'counter' or block.settings.pagination_style == 'numbers' %} caption{% endif %}">
                                 {%- if block.settings.pagination_style == 'counter' -%}
                                   <span class="slider-counter--current">1</span>
@@ -1177,7 +1177,6 @@
           "type": "text",
           "id": "heading",
           "default": "t:sections.main-product.blocks.collapsible_tab.settings.heading.default",
-          "info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
         },
         {
@@ -1373,6 +1372,12 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_icon",
+          "default": true,
+          "label": "Enable custom icon"
         }
       ]
     },
