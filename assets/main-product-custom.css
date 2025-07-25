@@ -88,6 +88,11 @@
   font-size: 16px;
   font-family: "Raleway-Bold";
 }
+
+.product-form .featured-product-buttons {
+  max-width: 100%;
+  width: 100%;
+}
 .featured-product-buttons .featured-product-submit-button {
   max-width: 100%;
   width: 100%;
@@ -258,7 +263,7 @@
     font-size: 9px;
   }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 992px) {
   .buttons-checkbox {
     max-width: 100%;
     width: 100%;
@@ -286,6 +291,10 @@
   }
   .featured-product-buttons .featured-product-submit-button {
     max-width: 100%;
+    width: 100%;
+  }
+
+  .product .product__media-wrapper {
     width: 100%;
   }
 }

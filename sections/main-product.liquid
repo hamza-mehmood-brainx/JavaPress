@@ -186,15 +186,11 @@
                   </a>
                 </div>
 
-                {%- if block.settings.stars_image != blank and block.settings.rating_text_coffee_lovers != blank -%}
+                {%- if block.settings.rating_text_coffee_lovers != blank -%}
                   <div class="rating-text-coffee">
-                    <img
-                      class="rating-star-image"
-                      src="{{ block.settings.stars_image | image_url }}"
-                      alt="img_text"
-                      width=""
-                      height=""
-                    >
+                    <div>
+                      {{- '5-star-rating_yellow.svg' | inline_asset_content -}}
+                    </div>
                     <p class="rating-star-text {% if section.settings.star_text-color %} custom-star-text-color {% endif %}">
                       {{ block.settings.rating_text_coffee_lovers }}
                     </p>
@@ -589,35 +585,17 @@
                   {%- if block.settings['add-checkbox-below-button'] != blank -%}
                     <div class="checkbox-container">
                       <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
-                        <img
-                          src="{{ block.settings.checkbox-1-image | image_url }}"
-                          alt="{{ block.settings.checkbox-1-label }}"
-                          width=""
-                          height=""
-                          class="checkbox-image"
-                        >
+                        {{- 'check-icon.svg' | inline_asset_content -}}
                         {{ block.settings['checkbox-1-label'] }}
                       </span>
 
                       <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
-                        <img
-                          src="{{ block.settings.checkbox-2-image | image_url }}"
-                          alt="{{ block.settings.checkbox-2-label }}"
-                          width=""
-                          height=""
-                          class="checkbox-image"
-                        >
+                        {{- 'check-icon.svg' | inline_asset_content -}}
                         {{ block.settings['checkbox-2-label'] }}
                       </span>
 
                       <span class="checkbox-label {% if section.settings.checkbox-label-color %} checkbox-label-color {% endif %}">
-                        <img
-                          src="{{ block.settings.checkbox-3-image | image_url }}"
-                          alt="{{ block.settings.checkbox-3-label }}"
-                          width=""
-                          height=""
-                          class="checkbox-image"
-                        >
+                        {{- 'check-icon.svg' | inline_asset_content -}}
                         {{ block.settings['checkbox-3-label'] }}
                       </span>
                     </div>
@@ -970,11 +948,6 @@
       "limit": 1,
       "settings": [
         {
-          "type": "image_picker",
-          "id": "stars_image",
-          "label": "Image below title"
-        },
-        {
           "type": "inline_richtext",
           "id": "rating_text_coffee_lovers",
           "label": "Text below title"
@@ -1142,22 +1115,6 @@
           "type": "text",
           "id": "checkbox-1-label",
           "label": "Add checkbox 1 label"
-        },
-        {
-          "type": "image_picker",
-          "id": "checkbox-1-image",
-          "label": "Add checkbox 1 image"
-        },
-        {
-          "type": "image_picker",
-          "id": "checkbox-2-image",
-          "label": "Add checkbox 2 image"
-        },
-
-        {
-          "type": "image_picker",
-          "id": "checkbox-3-image",
-          "label": "Add checkbox 3 image"
         },
 
         {
