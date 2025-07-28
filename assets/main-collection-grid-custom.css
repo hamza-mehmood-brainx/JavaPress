@@ -1,7 +1,9 @@
 .facet-container-custom .facets__wrapper .facets__heading,
 .facet-container-custom .facets__wrapper .facets__disclosure,
 .facet-container-custom .facets__wrapper .facets__summary,
-.facet-container-custom .facet-filters__label {
+.facet-container-custom .facet-filters__label,
+.mobilep-facets-custom .mobile-facets__details,
+.mobilep-facets-custom .select__select {
   font-family: "Raleway-Normal";
   font-size: 18px;
 }
@@ -70,6 +72,25 @@
 .price__sale .price-regular-text {
   font-size: 14px;
   font-family: "Raleway-Bold";
+}
+.mobilep-facets-custom .mobile-facets__footer .mobile-facets__clear-wrapper {
+  font-family: "Raleway-Medium";
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.mobilep-facets-custom .mobile-facets__footer .button {
+  background-color: var(--homepage-red);
+  border-radius: 5px;
+  font-family: "Raleway-Bold";
+}
+
+.mobilep-facets-custom .mobile-facets__footer .button::after {
+  box-shadow: none;
+}
+
+.facet-container-custom .facets__summary-label {
+  margin-right: 5px;
 }
 @media screen and (max-width: 1024px) {
   .collection-custom .product-card-title-heading {
