@@ -24,9 +24,9 @@
   text-align: center;
 }
 
-/* .multicolumn-list .column-custom {
-  max-width: 24%;
-} */
+.card-container-custom .multicolumn-card__image-wrapper--third-width {
+  width: 20%;
+}
 @media screen and (max-width: 1024px) {
   .heading-block .custom-head {
     font-size: 26px;
