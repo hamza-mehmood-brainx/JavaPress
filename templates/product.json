@@ -72,7 +72,8 @@
             "heading": "About Product:",
             "icon": "none",
             "content": "<p>The Manual Coffee Grinder by JavaPresse Coffee Company was built with a professional grade ceramic conical burr to heighten flavors of the most exquisite coffees in the world. It was born out of pure necessity, to provide an incredibly consistent grind for a variety of brews while making as little noise as possible. Combined with an impeccable stainless steel frame and convenient size, this grinder is at the pinnacle of travel gadgets. Who said you can’t have it all?</p>",
-            "page": ""
+            "page": "",
+            "enable_custom_icon": true
           }
         },
         "collapsible_tab_a9TgcD": {
@@ -81,7 +82,8 @@
             "heading": "Ingredients:",
             "icon": "none",
             "content": "<p>Chocolate honey...</p>",
-            "page": ""
+            "page": "",
+            "enable_custom_icon": true
           }
         }
       },

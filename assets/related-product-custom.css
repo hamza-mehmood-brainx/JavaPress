@@ -11,8 +11,8 @@
   max-width: 23% !important;
 }
 .recommendation-product-grid-main {
-  justify-content: start;
-  gap: 30px;
+  justify-content: center;
+  gap: 20px;
   max-width: 1200px;
   width: 100%;
 }
@@ -75,7 +75,7 @@
     height: 50px;
   }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 992px) {
   .recommendation-product-grid-main {
     flex-wrap: wrap;
     gap: 20px;

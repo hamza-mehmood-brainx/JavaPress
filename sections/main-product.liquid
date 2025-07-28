@@ -2,8 +2,6 @@
   {{ 'main-product-custom.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
-<script src="{{ 'main-product.js' | asset_url }}" defer="defer"></script>
-
 <style>
   #shopify-section-{{ section.id }} .mid-text-color{
     color: {{ section.settings.mid-text-color }};
@@ -935,14 +933,7 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "rating_text_coffee_lovers",
-          "label": "Text below title"
-        }
-      ]
+      "limit": 1
     },
     {
       "type": "rating_custom",

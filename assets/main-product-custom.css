@@ -19,6 +19,10 @@
 .product__info-container .main-product-heading-main {
   margin-top: 0px;
 }
+
+details[open] summary .accordion-icon {
+  transform: rotate(-45deg) !important;
+}
 .main-product-heading-main .main-product-heading {
   font-size: 24px;
   font-family: "Raleway-Bold";
@@ -131,7 +135,7 @@
   justify-content: space-between;
 }
 .product__info-container .accordion-item {
-  padding: 15px;
+  padding: 20px 15px;
   cursor: pointer;
   border-radius: 4px;
   border-top: none;
@@ -326,10 +330,6 @@
   }
   .accordion-item .accordion-content-text {
     font-size: 12px;
-  }
-
-  details[open] summary .accordion-icon svg {
-    transform: rotate(45deg) !important;
   }
 
   .accordion-item .accordion-title-text {
