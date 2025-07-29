@@ -21,6 +21,8 @@
       "type": "main-collection-product-grid",
       "settings": {
         "review-text": "( 1171 Reviews )",
+        "show-best-seller-badge": true,
+        "show-custom-pagination": true,
         "products_per_page": 8,
         "columns_desktop": 4,
         "columns_mobile": "2",
