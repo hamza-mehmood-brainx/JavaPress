@@ -21,6 +21,16 @@
   font-family: "Raleway-Normal";
 }
 
+.card-image-inner .badge--best-seller {
+  font-family: "Raleway-Medium";
+  font-size: 14px;
+  background-color: var(--badge);
+  position: absolute;
+  top: 20px;
+  padding: 5px 10px;
+  color: var(--black);
+}
+
 .facet-container-custom .facet-filters__sort:focus-visible {
   outline: none !important;
   box-shadow: none !important;
