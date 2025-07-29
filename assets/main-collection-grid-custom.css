@@ -58,8 +58,8 @@
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   max-height: unset !important;
 }
 
@@ -69,8 +69,8 @@
   background-repeat: no-repeat;
   background-position: center;
   color: transparent;
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   max-height: unset !important;
 }
 .collection-custom .add-to-cart-button::after,
