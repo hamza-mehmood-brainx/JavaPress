@@ -186,7 +186,11 @@
             </ul>
 
             {%- if paginate.pages > 1 -%}
-              {% render 'pagination', paginate: paginate, anchor: '' %}
+              {% render 'pagination',
+                paginate: paginate,
+                anchor: '',
+                show_custom_pagination: section.settings['show-custom-pagination']
+              %}
             {%- endif -%}
           </div>
         {%- endif -%}
@@ -207,6 +211,12 @@
       "type": "text",
       "id": "review-text",
       "label": "Add text below the product title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-custom-pagination",
+      "default": true,
+      "label": "Enable Custom Pagination"
     },
     {
       "type": "range",

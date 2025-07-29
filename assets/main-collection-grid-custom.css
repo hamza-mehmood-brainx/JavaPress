@@ -3,7 +3,8 @@
 .facet-container-custom .facets__wrapper .facets__summary,
 .facet-container-custom .facet-filters__label,
 .mobilep-facets-custom .mobile-facets__details,
-.mobilep-facets-custom .select__select {
+.mobilep-facets-custom .select__select,
+.facet-container-custom .facets__form .product-count .product-count__text {
   font-family: "Raleway-Normal";
   font-size: 18px;
 }
@@ -15,9 +16,18 @@
   padding: 10px;
 }
 
+.facet-container-custom .facets__form .product-count {
+  align-self: center;
+  font-family: "Raleway-Normal";
+}
+
 .facet-container-custom .facet-filters__sort:focus-visible {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.card-image-div .card__media .media {
+  border-radius: 8px;
 }
 
 .facet-container-custom .svg-wrapper {
@@ -42,7 +52,29 @@
   color: var(--white);
 }
 
-.collection-custom .add-to-cart-button::after {
+.pagination-wrapper-custom .pagination-arrow-prev {
+  background-image: url(https://cdn.shopify.com/s/files/1/0899/1355/7281/files/Group_37.svg?v=1727792028);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+  width: 45px;
+  height: 45px;
+  max-height: unset !important;
+}
+
+.pagination-wrapper-custom .pagination-arrow-next {
+  background-image: url(https://cdn.shopify.com/s/files/1/0899/1355/7281/files/Group_36.svg?v=1727792074);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+  width: 45px;
+  height: 45px;
+  max-height: unset !important;
+}
+.collection-custom .add-to-cart-button::after,
+.collection-custom .add-to-cart-button:hover:after {
   box-shadow: none;
 }
 
