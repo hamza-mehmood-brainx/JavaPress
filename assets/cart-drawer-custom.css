@@ -1,0 +1,30 @@
+.drawer_inner_custom .drawer__header .drawer__heading {
+  font-family: "Raleway-Medium";
+}
+
+.drawer_inner_custom .cart-item__details .product-option {
+  font-family: "Raleway-Normal";
+}
+
+.drawer_inner_custom .cart-item__details .cart-item__name,
+.drawer_inner_custom .cart-item__details .product-price {
+  font-family: "Raleway-Bold";
+}
+
+.drawer_inner_custom .drawer__footer .cart__checkout-button {
+  font-family: "Raleway-Bold";
+  background-color: var(--homepage-red);
+  border-radius: 5px;
+}
+
+.drawer_inner_custom .drawer__footer .cart-drawer__footer .totals {
+  font-family: "Raleway-Medium";
+}
+
+.drawer_inner_custom .drawer__footer .cart__checkout-button::after {
+  box-shadow: none;
+}
+
+.drawer_inner_custom .cart-quantity .quantity__button {
+  background-color: var(--quantity-back) !important;
+}

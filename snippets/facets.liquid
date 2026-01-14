@@ -28,7 +28,7 @@
   endif
 -%}
 
-<div class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+<div class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} facet-container-custom">
   {%- if filter_type == 'vertical' or filter_type == 'horizontal' -%}
     <facet-filters-form class="facets small-hide">
       <form
@@ -151,7 +151,8 @@
                             {{ 'products.facets.filter_and_operator_subtitle' | t }}
                           </span>
                         {%- endif -%}
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                        {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
+                        {% render 'icon-caret-custom' %}
                       </div>
                     </summary>
                     <div
@@ -307,7 +308,8 @@
                     <summary class="facets__summary caption-large focus-offset">
                       <div>
                         <span>{{ filter.label | escape }}</span>
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                        {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
+                        {% render 'icon-caret-custom' %}
                       </div>
                     </summary>
                     <div
@@ -411,7 +413,8 @@
                     {%- endfor -%}
                   </select>
                   <span class="svg-wrapper">
-                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                    {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
+                    {% render 'icon-caret-custom' %}
                   </span>
                 </div>
               </div>
@@ -471,7 +474,7 @@
         </span>
       </summary>
       <facet-filters-form>
-        <form id="FacetFiltersFormMobile" class="mobile-facets">
+        <form id="FacetFiltersFormMobile" class="mobile-facets mobilep-facets-custom">
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
               <div class="mobile-facets__header-inner">
@@ -744,7 +747,8 @@
                           {%- endfor -%}
                         </select>
                         <span class="svg-wrapper">
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                          {% comment %} {{- 'icon-caret.svg' | inline_asset_content -}} {% endcomment %}
+                          {% render 'icon-caret-custom' %}
                         </span>
                       </div>
                     </div>

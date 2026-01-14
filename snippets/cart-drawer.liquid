@@ -8,6 +8,8 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 
+{{ 'cart-drawer-custom.css' | asset_url | stylesheet_tag }}
+
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
@@ -21,7 +23,7 @@
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
-      class="drawer__inner gradient color-{{ settings.cart_color_scheme }}"
+      class="drawer__inner drawer_inner_custom gradient color-{{ settings.cart_color_scheme }}"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'sections.cart.title' | t }}"
@@ -148,7 +150,7 @@
                               <span class="visually-hidden">
                                 {{ 'products.product.price.regular_price' | t }}
                               </span>
-                              <s class="cart-item__old-price product-option">
+                              <s class="cart-item__old-price product-option ">
                                 {{- item.original_price | money -}}
                               </s>
                               <span class="visually-hidden">
@@ -159,7 +161,7 @@
                               </strong>
                             </div>
                           {%- else -%}
-                            <div class="product-option">
+                            <div class="product-option product-price">
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
